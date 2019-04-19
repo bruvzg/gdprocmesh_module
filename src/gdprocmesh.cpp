@@ -57,7 +57,7 @@ bool GDProcMesh::_get(const StringName &p_name, Variant &r_ret) const {
 
 		const Map<int, Ref<GDProcNode> >::Element *E = nodes.find(id);
 		if (!E) {
-			ERR_EXPLAIN(RTR("Couldn't find node ") + String::num_int64(id));
+			ERR_EXPLAIN(RTR_LOCAL("Couldn't find node ") + String::num_int64(id));
 			ERR_FAIL_V(false);
 		} else {
 			r_ret = Variant(E->get());
@@ -194,7 +194,7 @@ void GDProcMesh::_child_name_changed(const Ref<GDProcNode> &p_child, const Strin
 
 int GDProcMesh::add_node(Ref<GDProcNode> p_node, int p_id) {
 	if (!p_node.is_valid()) {
-		ERR_EXPLAIN(RTR("Invalid node passed to add_node"));
+		ERR_EXPLAIN(RTR_LOCAL("Invalid node passed to add_node"));
 		ERR_FAIL_V(-1);
 	} else if (p_id == 0) {
 		// no id set? get an unused id
@@ -297,26 +297,26 @@ void GDProcMesh::add_connection(int p_input_node, int p_input_connector, int p_o
 	// does our input node exist?
 	Ref<GDProcNode> input_node = get_node(p_input_node);
 	if (input_node.is_null()) {
-		ERR_EXPLAIN(RTR("Unknown input node ") + String::num_int64(p_input_node));
+		ERR_EXPLAIN(RTR_LOCAL("Unknown input node ") + String::num_int64(p_input_node));
 		ERR_FAIL();
 	}
 
 	// does our input node actually have this connector?
 	if (p_input_connector >= input_node->get_input_connector_count()) {
-		ERR_EXPLAIN(RTR("Input node ") + String::num_int64(p_input_node) + RTR(" does not have connector ") + String::num_int64(p_input_connector));
+		ERR_EXPLAIN(RTR_LOCAL("Input node ") + String::num_int64(p_input_node) + RTR_LOCAL(" does not have connector ") + String::num_int64(p_input_connector));
 		ERR_FAIL();
 	}
 
 	// does our output node exist?
 	Ref<GDProcNode> output_node = get_node(p_output_node);
 	if (output_node.is_null()) {
-		ERR_EXPLAIN(RTR("Unknown output node ") + String::num_int64(p_output_node));
+		ERR_EXPLAIN(RTR_LOCAL("Unknown output node ") + String::num_int64(p_output_node));
 		ERR_FAIL();
 	}
 
 	// does our output nod eactually have this connector?
 	if (p_output_connector >= output_node->get_output_connector_count()) {
-		ERR_EXPLAIN(RTR("Output node ") + String::num_int64(p_output_node) + RTR(" does not have connector ") + String::num_int64(p_output_connector));
+		ERR_EXPLAIN(RTR_LOCAL("Output node ") + String::num_int64(p_output_node) + RTR_LOCAL(" does not have connector ") + String::num_int64(p_output_connector));
 		ERR_FAIL();
 	}
 
@@ -455,7 +455,7 @@ bool GDProcMesh::do_update_node(int p_id, Ref<GDProcNode> &p_node) {
 	switch (p_node->get_status()) {
 		case GDProcNode::PROCESS_STATUS_INPROGRESS: {
 			// this is bad, we have a circular dependency
-			ERR_EXPLAIN(RTR("Found circular dependency in procedural mesh!"));
+			ERR_EXPLAIN(RTR_LOCAL("Found circular dependency in procedural mesh!"));
 			ERR_FAIL_V(false);
 		}; break;
 		case GDProcNode::PROCESS_STATUS_UNCHANGED: {
@@ -486,7 +486,7 @@ bool GDProcMesh::do_update_node(int p_id, Ref<GDProcNode> &p_node) {
 					// make sure this is a valid node
 					const Map<int, Ref<GDProcNode> >::Element *E = nodes.find(c.node);
 					if (!E) {
-						WARN_PRINTS(RTR("Unknown node ") + String::num_int64(c.node));
+						WARN_PRINTS(RTR_LOCAL("Unknown node ") + String::num_int64(c.node));
 						inputs.push_back(Variant());
 					} else {
 						Ref<GDProcNode> output_node = E->get();
@@ -524,8 +524,8 @@ bool GDProcMesh::do_update_node(int p_id, Ref<GDProcNode> &p_node) {
 							output = reals;
 						} else if (output_type != input_type) {
 							// In this case we have a problem
-							WARN_PRINTS(RTR("Output type ({0}) and input type ({1}) do not match.\n"
-											"Error: Bad Connection - Node {2} : Connector {3} --> Node {4} : Connector {5}")
+							WARN_PRINTS(RTR_LOCAL("Output type ({0}) and input type ({1}) do not match.\n"
+												  "Error: Bad Connection - Node {2} : Connector {3} --> Node {4} : Connector {5}")
 												.format(varray(output_type, input_type, output_node->get_node_name(),
 														c.connector, p_node->get_node_name(), i)));
 							output = Variant();
@@ -601,20 +601,20 @@ void GDProcMesh::_update() {
 
 				// check if this is a valid array and update!
 				if (surface.get_type() != Variant::ARRAY) {
-					WARN_PRINTS(RTR("Final node is not returning an array"));
+					WARN_PRINTS(RTR_LOCAL("Final node is not returning an array"));
 				} else {
 					Array arr = surface;
 
 					if (arr.size() != GDProcMesh::ARRAY_MAX) {
-						WARN_PRINTS(RTR("Final node is not returning a correctly sized array"));
+						WARN_PRINTS(RTR_LOCAL("Final node is not returning a correctly sized array"));
 					} else if (arr[GDProcMesh::ARRAY_VERTEX].get_type() != Variant::POOL_VECTOR3_ARRAY) {
-						WARN_PRINTS(RTR("No vertices in surface"));
+						WARN_PRINTS(RTR_LOCAL("No vertices in surface"));
 					} else if (((PoolVector<Vector3>)arr[GDProcMesh::ARRAY_VERTEX]).size() == 0) {
-						WARN_PRINTS(RTR("No vertices in surface"));
+						WARN_PRINTS(RTR_LOCAL("No vertices in surface"));
 					} else if (arr[GDProcMesh::ARRAY_INDEX].get_type() != Variant::POOL_INT_ARRAY) {
-						WARN_PRINTS(RTR("No indices in surface"));
+						WARN_PRINTS(RTR_LOCAL("No indices in surface"));
 					} else if (((PoolVector<int>)arr[GDProcMesh::ARRAY_INDEX]).size() == 0) {
-						WARN_PRINTS(RTR("No indices in surface"));
+						WARN_PRINTS(RTR_LOCAL("No indices in surface"));
 					} else {
 						// only replace the surface if we have a valid surface or we'll loose our material.
 

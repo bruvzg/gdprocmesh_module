@@ -13,11 +13,11 @@ void GDProcSimplify::_bind_methods() {
 }
 
 String GDProcSimplify::get_type_name() const {
-	return RTR("Simplify");
+	return RTR_LOCAL("Simplify");
 }
 
 String GDProcSimplify::get_description() const {
-	return RTR("Takes a surface a runs a Fast Quadric Mesh Simplification routine on it.");
+	return RTR_LOCAL("Takes a surface a runs a Fast Quadric Mesh Simplification routine on it.");
 }
 
 void GDProcSimplify::set_reduction(float p_reduction) {

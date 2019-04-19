@@ -12,11 +12,11 @@ void GDProcDiv::_bind_methods() {
 }
 
 String GDProcDiv::get_type_name() const {
-	return RTR("Division");
+	return RTR_LOCAL("Division");
 }
 
 String GDProcDiv::get_description() const {
-	return RTR("Divides all reals in input by divider.");
+	return RTR_LOCAL("Divides all reals in input by divider.");
 }
 
 void GDProcDiv::set_divider(float p_divider) {

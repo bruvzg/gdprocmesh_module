@@ -8,11 +8,11 @@ void GDProcOutput::_bind_methods() {
 }
 
 String GDProcOutput::get_type_name() const {
-	return RTR("Output");
+	return RTR_LOCAL("Output");
 }
 
 String GDProcOutput::get_description() const {
-	return RTR("Used to output a surface to the final mesh.");
+	return RTR_LOCAL("Used to output a surface to the final mesh.");
 }
 
 bool GDProcOutput::update(bool p_inputs_updated, const Array &p_inputs) {

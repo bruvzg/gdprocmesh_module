@@ -12,11 +12,11 @@ void GDProcRotate::_bind_methods() {
 }
 
 String GDProcRotate::get_type_name() const {
-	return RTR("Rotate");
+	return RTR_LOCAL("Rotate");
 }
 
 String GDProcRotate::get_description() const {
-	return RTR("Rotates vectors from input by rotation.");
+	return RTR_LOCAL("Rotates vectors from input by rotation.");
 }
 
 void GDProcRotate::set_rotation(Vector3 p_rotation) {

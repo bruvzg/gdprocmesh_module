@@ -8,11 +8,11 @@ void GDProcPlaceOnPath::_bind_methods() {
 }
 
 String GDProcPlaceOnPath::get_type_name() const {
-	return RTR("Place on Path");
+	return RTR_LOCAL("Place on Path");
 }
 
 String GDProcPlaceOnPath::get_description() const {
-	return RTR("Places a copy of the surface at the given rotation(s), translation(s) and scale(s).");
+	return RTR_LOCAL("Places a copy of the surface at the given rotation(s), translation(s) and scale(s).");
 }
 
 bool GDProcPlaceOnPath::update(bool p_inputs_updated, const Array &p_inputs) {

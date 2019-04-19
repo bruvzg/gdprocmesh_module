@@ -9,11 +9,11 @@ void GDProcInMesh::_bind_methods() {
 }
 
 String GDProcInMesh::get_type_name() const {
-	return RTR("Input Mesh");
+	return RTR_LOCAL("Input Mesh");
 }
 
 String GDProcInMesh::get_description() const {
-	return RTR("Allows you to specify a Mesh as input for the procedural mesh.");
+	return RTR_LOCAL("Allows you to specify a Mesh as input for the procedural mesh.");
 }
 
 bool GDProcInMesh::update(bool p_inputs_updated, const Array &p_inputs) {
@@ -67,16 +67,16 @@ String GDProcInMesh::get_input_property_hint() const {
 
 void GDProcInMesh::set_input(Variant p_input) {
 	if (p_input.get_type() != Variant::OBJECT) {
-		ERR_EXPLAIN(RTR("Not an object ") + Variant::get_type_name(p_input.get_type()));
+		ERR_EXPLAIN(RTR_LOCAL("Not an object ") + Variant::get_type_name(p_input.get_type()));
 		ERR_FAIL();
 	}
 
 	Ref<Mesh> new_mesh = p_input;
 	if (new_mesh.is_null()) {
-		ERR_EXPLAIN(RTR("Not a valid object (Null)."));
+		ERR_EXPLAIN(RTR_LOCAL("Not a valid object (Null)."));
 		ERR_FAIL();
 	} else if (!new_mesh->is_class("Mesh")) {
-		ERR_EXPLAIN(RTR("Not a valid object (Class name)."));
+		ERR_EXPLAIN(RTR_LOCAL("Not a valid object (Class name)."));
 		ERR_FAIL();
 	}
 

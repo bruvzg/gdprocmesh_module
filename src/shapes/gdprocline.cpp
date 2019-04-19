@@ -16,11 +16,11 @@ void GDProcLine::_bind_methods() {
 }
 
 String GDProcLine::get_type_name() const {
-	return RTR("Line");
+	return RTR_LOCAL("Line");
 }
 
 String GDProcLine::get_description() const {
-	return RTR("Creates a line by repeating a vector over a number of segments.");
+	return RTR_LOCAL("Creates a line by repeating a vector over a number of segments.");
 }
 
 void GDProcLine::set_vector(Vector3 p_vector) {

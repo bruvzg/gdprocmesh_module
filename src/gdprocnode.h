@@ -10,6 +10,8 @@
 #include <scene/resources/material.h>
 #include <scene/resources/mesh.h>
 
+#include "src/local_translation.h"
+
 class GDProcMesh;
 
 class GDProcNode : public Resource {

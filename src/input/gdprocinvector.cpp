@@ -8,11 +8,11 @@ void GDProcInVector::_bind_methods() {
 }
 
 String GDProcInVector::get_type_name() const {
-	return RTR("Input Vector");
+	return RTR_LOCAL("Input Vector");
 }
 
 String GDProcInVector::get_description() const {
-	return RTR("Allows you to specify a single vector as input for the procedural mesh.\nCan be set from the editor.");
+	return RTR_LOCAL("Allows you to specify a single vector as input for the procedural mesh.\nCan be set from the editor.");
 }
 
 void GDProcInVector::set_input(Variant p_input) {

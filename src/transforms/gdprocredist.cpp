@@ -24,11 +24,11 @@ void GDProcRedist::_bind_methods() {
 }
 
 String GDProcRedist::get_type_name() const {
-	return RTR("Redistribute");
+	return RTR_LOCAL("Redistribute");
 }
 
 String GDProcRedist::get_description() const {
-	return RTR("This node creates an array of vertices by following the path set out by the input array and taking a sample according to the strafe settings.");
+	return RTR_LOCAL("This node creates an array of vertices by following the path set out by the input array and taking a sample according to the strafe settings.");
 }
 
 void GDProcRedist::set_is_closed(bool p_is_closed) {

@@ -843,7 +843,7 @@ void load_obj(const char *filename, bool process_uv = false) {
 		}
 
 		if (line[0] == 'v' && line[1] == 't') {
-			if (line[2] == ' ')
+			if (line[2] == ' ') {
 				if (sscanf(line, "vt %lf %lf",
 							&uv.x, &uv.y) == 2) {
 					uv.z = 0;
@@ -852,6 +852,7 @@ void load_obj(const char *filename, bool process_uv = false) {
 								   &uv.x, &uv.y, &uv.z) == 3) {
 					uvs.push_back(uv);
 				}
+			}
 		} else if (line[0] == 'v') {
 			if (line[1] == ' ')
 				if (sscanf(line, "v %lf %lf %lf",

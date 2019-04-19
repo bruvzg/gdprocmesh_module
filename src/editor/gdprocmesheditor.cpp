@@ -2,9 +2,14 @@
 /*  gdprocmesheditor.cpp                                                 */
 /*************************************************************************/
 
+#include <core/io/compression.h>
+#include <core/io/file_access_memory.h>
 #include <core/io/marshalls.h>
 #include <core/io/resource_loader.h>
+#include <core/io/translation_loader_po.h>
 #include <core/os/keyboard.h>
+
+#include "src/editor/translations.gen.h"
 
 #include "src/editor/gdprocmesheditor.h"
 #include "src/editor/icons/icons.gen.h"
@@ -161,7 +166,7 @@ Color GDProcMeshNode::_get_type_color(Variant::Type p_type) {
 			return Color::html("#a8fbde");
 		} break;
 		default: {
-			WARN_PRINTS(TTR("Need a color for type ") + String(Variant::get_type_name(p_type)));
+			WARN_PRINTS(RTR_LOCAL("Need a color for type ") + String(Variant::get_type_name(p_type)));
 			return Color(0.0, 0.0, 1.0);
 		} break;
 	}
@@ -337,7 +342,7 @@ void GDProcMeshNode::set_proc_node(GDProcMesh *p_proc_mesh, int p_node_id) {
 					} break;
 					case Variant::BOOL: {
 						CheckBox *prop_field = memnew(CheckBox);
-						prop_field->set_text(TTR("On"));
+						prop_field->set_text(RTR_LOCAL("On"));
 						prop_field->set_pressed(prop_value);
 						prop_field->connect("toggled", this, "_set_node_property_bool", varray(prop_name, prop_field));
 						prop_field->set_custom_minimum_size(Vector2(75.0, 0.0));
@@ -359,7 +364,7 @@ void GDProcMeshNode::set_proc_node(GDProcMesh *p_proc_mesh, int p_node_id) {
 						hb->add_child(prop_field);
 					} break;
 					default: {
-						WARN_PRINTS(TTR("Invalid property type"));
+						WARN_PRINTS(RTR_LOCAL("Invalid property type"));
 					} break;
 				}
 			}
@@ -407,7 +412,7 @@ GDProcMeshNode::GDProcMeshNode() {
 	name_container->add_child(icon_rect);
 
 	name_label = memnew(Label);
-	name_label->set_text(TTR("Name:"));
+	name_label->set_text(RTR_LOCAL("Name:"));
 	name_container->add_child(name_label);
 
 	name_edit = memnew(LineEdit);
@@ -416,7 +421,7 @@ GDProcMeshNode::GDProcMeshNode() {
 	name_edit->set_custom_minimum_size(Vector2(100.0, 0.0));
 
 	hide_input = memnew(CheckBox);
-	hide_input->set_text(TTR("Hide"));
+	hide_input->set_text(RTR_LOCAL("Hide"));
 	name_container->add_child(hide_input);
 }
 
@@ -493,10 +498,10 @@ void GDProcMeshEditor::_add_node(int p_type) {
 
 				_update_graph();
 			} else {
-				WARN_PRINTS(TTR("Error adding node: ") + node_classes[p_type].type);
+				WARN_PRINTS(RTR_LOCAL("Error adding node: ") + node_classes[p_type].type);
 			}
 		} else {
-			WARN_PRINTS(TTR("Error adding node: Invalid node type!"));
+			WARN_PRINTS(RTR_LOCAL("Error adding node: Invalid node type!"));
 		}
 	}
 }
@@ -504,7 +509,7 @@ void GDProcMeshEditor::_add_node(int p_type) {
 void GDProcMeshEditor::_file_selected(const String &p_file) {
 	RES res = ResourceLoader::load(p_file, "GDProcNode");
 	if (res.is_null()) {
-		WARN_PRINTS(TTR("Error loading file: Not a resource!"));
+		WARN_PRINTS(RTR_LOCAL("Error loading file: Not a resource!"));
 	} else {
 		Ref<GDProcNode> new_node = res;
 		int id_to_use = proc_mesh->get_free_id();
@@ -566,7 +571,7 @@ GDProcMeshEditor::GDProcMeshEditor(EditorNode *p_editor, GDProcMeshEditorPlugin 
 
 	// create our add node button
 	add_button = memnew(MenuButton);
-	add_button->set_text(String(TTR("Add node...")));
+	add_button->set_text(String(RTR_LOCAL("Add node...")));
 	add_button->connect("pressed", this, "set", varray("place", Vector2(10.0, 50.0)));
 	graph_edit->get_zoom_hbox()->add_child(add_button);
 	graph_edit->get_zoom_hbox()->move_child(add_button, 0);
@@ -577,53 +582,53 @@ GDProcMeshEditor::GDProcMeshEditor(EditorNode *p_editor, GDProcMeshEditorPlugin 
 	node_classes.push_back(AddNodeOption());
 
 	// inputs
-	node_classes.push_back(AddNodeOption(TTR("Inputs/Input Curve"), "GDProcInCurve"));
-	node_classes.push_back(AddNodeOption(TTR("Inputs/Input Int"), "GDProcInInt"));
-	node_classes.push_back(AddNodeOption(TTR("Inputs/Input Mesh"), "GDProcInMesh"));
-	node_classes.push_back(AddNodeOption(TTR("Inputs/Input Vectors"), "GDProcInPoolVectors"));
-	node_classes.push_back(AddNodeOption(TTR("Inputs/Input Real"), "GDProcInReal"));
-	node_classes.push_back(AddNodeOption(TTR("Inputs/Input Vector"), "GDProcInVector"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Inputs/Input Curve"), "GDProcInCurve"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Inputs/Input Int"), "GDProcInInt"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Inputs/Input Mesh"), "GDProcInMesh"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Inputs/Input Vectors"), "GDProcInPoolVectors"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Inputs/Input Real"), "GDProcInReal"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Inputs/Input Vector"), "GDProcInVector"));
 
 	// primitives
-	node_classes.push_back(AddNodeOption(TTR("Primitives/Count"), "GDProcCount"));
-	node_classes.push_back(AddNodeOption(TTR("Primitives/Euler Angles"), "GDProcEuler"));
-	node_classes.push_back(AddNodeOption(TTR("Primitives/Random"), "GDProcRandom"));
-	node_classes.push_back(AddNodeOption(TTR("Primitives/Split Vector"), "GDProcSplitVector"));
-	node_classes.push_back(AddNodeOption(TTR("Primitives/Vector"), "GDProcVector"));
-	node_classes.push_back(AddNodeOption(TTR("Primitives/Execute"), "GDProcExec"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Primitives/Count"), "GDProcCount"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Primitives/Euler Angles"), "GDProcEuler"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Primitives/Random"), "GDProcRandom"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Primitives/Split Vector"), "GDProcSplitVector"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Primitives/Vector"), "GDProcVector"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Primitives/Execute"), "GDProcExec"));
 
 	// transforms (work on primitives)
-	node_classes.push_back(AddNodeOption(TTR("Transforms/Add"), "GDProcAdd"));
-	node_classes.push_back(AddNodeOption(TTR("Transforms/Bevel"), "GDProcBevel"));
-	node_classes.push_back(AddNodeOption(TTR("Transforms/Division"), "GDProcDiv"));
-	node_classes.push_back(AddNodeOption(TTR("Transforms/Generate Normals"), "GDProcGenNormals"));
-	node_classes.push_back(AddNodeOption(TTR("Transforms/Redistribute"), "GDProcRedist"));
-	node_classes.push_back(AddNodeOption(TTR("Transforms/Multiply"), "GDProcMult"));
-	node_classes.push_back(AddNodeOption(TTR("Transforms/Rotate"), "GDProcRotate"));
-	node_classes.push_back(AddNodeOption(TTR("Transforms/Multiply Rotation"), "GDProcRotMult"));
-	node_classes.push_back(AddNodeOption(TTR("Transforms/Scale"), "GDProcScale"));
-	node_classes.push_back(AddNodeOption(TTR("Transforms/Subtract"), "GDProcSub"));
-	node_classes.push_back(AddNodeOption(TTR("Transforms/Translate"), "GDProcTranslate"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Transforms/Add"), "GDProcAdd"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Transforms/Bevel"), "GDProcBevel"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Transforms/Division"), "GDProcDiv"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Transforms/Generate Normals"), "GDProcGenNormals"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Transforms/Redistribute"), "GDProcRedist"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Transforms/Multiply"), "GDProcMult"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Transforms/Rotate"), "GDProcRotate"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Transforms/Multiply Rotation"), "GDProcRotMult"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Transforms/Scale"), "GDProcScale"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Transforms/Subtract"), "GDProcSub"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Transforms/Translate"), "GDProcTranslate"));
 
 	// shapes
-	node_classes.push_back(AddNodeOption(TTR("Shapes/Box"), "GDProcBox"));
-	node_classes.push_back(AddNodeOption(TTR("Shapes/Circle"), "GDProcCircle"));
-	node_classes.push_back(AddNodeOption(TTR("Shapes/Line"), "GDProcLine"));
-	node_classes.push_back(AddNodeOption(TTR("Shapes/Rectangle"), "GDProcRect"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Shapes/Box"), "GDProcBox"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Shapes/Circle"), "GDProcCircle"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Shapes/Line"), "GDProcLine"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Shapes/Rectangle"), "GDProcRect"));
 
 	// surface
-	node_classes.push_back(AddNodeOption(TTR("Surfaces/Extrude Shape"), "GDProcExtrudeShape"));
-	node_classes.push_back(AddNodeOption(TTR("Surfaces/Simplify"), "GDProcSimplify"));
-	node_classes.push_back(AddNodeOption(TTR("Surfaces/Surface"), "GDProcSurface"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Surfaces/Extrude Shape"), "GDProcExtrudeShape"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Surfaces/Simplify"), "GDProcSimplify"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Surfaces/Surface"), "GDProcSurface"));
 
 	// modifiers (work on surfaces)
-	node_classes.push_back(AddNodeOption(TTR("Modifiers/Merge"), "GDProcMerge"));
-	node_classes.push_back(AddNodeOption(TTR("Modifiers/Mirror"), "GDProcMirror"));
-	node_classes.push_back(AddNodeOption(TTR("Modifiers/Place on Path"), "GDProcPlaceOnPath"));
-	node_classes.push_back(AddNodeOption(TTR("Modifiers/Transform"), "GDProcTransform"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Modifiers/Merge"), "GDProcMerge"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Modifiers/Mirror"), "GDProcMirror"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Modifiers/Place on Path"), "GDProcPlaceOnPath"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Modifiers/Transform"), "GDProcTransform"));
 
 	// output
-	node_classes.push_back(AddNodeOption(TTR("Outputs/Output"), "GDProcOutput"));
+	node_classes.push_back(AddNodeOption(RTR_LOCAL("Outputs/Output"), "GDProcOutput"));
 
 	add_button->get_popup()->clear();
 	for (int i = 0; i < node_classes.size(); i++) {
@@ -647,7 +652,7 @@ GDProcMeshEditor::GDProcMeshEditor(EditorNode *p_editor, GDProcMeshEditorPlugin 
 		}
 	}
 	add_button->get_popup()->add_separator();
-	add_button->get_popup()->add_item(TTR("Custom Node..."), node_classes.size() + 100);
+	add_button->get_popup()->add_item(RTR_LOCAL("Custom Node..."), node_classes.size() + 100);
 
 	// custom node resource selection dialog
 	file = memnew(EditorFileDialog);
@@ -671,6 +676,8 @@ GDProcMeshEditor::GDProcMeshEditor(EditorNode *p_editor, GDProcMeshEditorPlugin 
 }
 
 /*************************************************************************/
+
+GDProcMeshEditorPlugin *GDProcMeshEditorPlugin::singleton = NULL;
 
 void GDProcMeshEditorPlugin::_notification(int p_notification) {
 
@@ -723,8 +730,22 @@ void GDProcMeshEditorPlugin::make_visible(bool p_visible) {
 	}
 }
 
+StringName GDProcMeshEditorPlugin::tool_translate(const StringName &p_message) const {
+
+	if (translation.is_valid()) {
+		StringName r = translation->get_message(p_message);
+
+		if (r) {
+			return r;
+		}
+	}
+
+	return p_message;
+}
+
 GDProcMeshEditorPlugin::GDProcMeshEditorPlugin(EditorNode *p_editor) {
 
+	singleton = this;
 	editor = p_editor;
 
 	// init icons
@@ -743,10 +764,41 @@ GDProcMeshEditorPlugin::GDProcMeshEditorPlugin(EditorNode *p_editor) {
 		}
 	}
 
+	// init translations
+	String lang = EditorSettings::get_singleton()->get("interface/editor/editor_language");
+	EditorTranslationList *etl = _editor_translations;
+
+	while (etl->data) {
+
+		if (etl->lang == lang) {
+
+			Vector<uint8_t> data;
+			data.resize(etl->uncomp_size);
+			Compression::decompress(data.ptrw(), etl->uncomp_size, etl->data, etl->comp_size, Compression::MODE_DEFLATE);
+
+			FileAccessMemory *fa = memnew(FileAccessMemory);
+			fa->open_custom(data.ptr(), data.size());
+
+			Ref<Translation> tr = TranslationLoaderPO::load_translation(fa, NULL, "translation_" + String(etl->lang));
+
+			if (tr.is_valid()) {
+				tr->set_locale(etl->lang);
+
+				translation = tr;
+				break;
+			}
+		}
+		etl++;
+	}
+
 	// create proc mesh editor control
 	proc_mesh_editor = memnew(GDProcMeshEditor(editor, this));
 	proc_mesh_editor->set_custom_minimum_size(Size2(400, 300));
 
-	button = editor->add_bottom_panel_item(TTR("Procedural Mesh"), proc_mesh_editor);
+	button = editor->add_bottom_panel_item(RTR_LOCAL("Procedural Mesh"), proc_mesh_editor);
 	button->hide();
-};
+}
+
+GDProcMeshEditorPlugin::~GDProcMeshEditorPlugin() {
+	singleton = NULL;
+}

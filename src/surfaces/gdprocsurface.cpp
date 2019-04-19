@@ -8,11 +8,11 @@ void GDProcSurface::_bind_methods() {
 }
 
 String GDProcSurface::get_type_name() const {
-	return RTR("Surface");
+	return RTR_LOCAL("Surface");
 }
 
 String GDProcSurface::get_description() const {
-	return RTR("Combines an array of vertices, normals, tangents, uvs, bones, weights and indices into a 3D surface.\nVertices and indices are mandatory, other arrays are optional.");
+	return RTR_LOCAL("Combines an array of vertices, normals, tangents, uvs, bones, weights and indices into a 3D surface.\nVertices and indices are mandatory, other arrays are optional.");
 }
 
 bool GDProcSurface::update(bool p_inputs_updated, const Array &p_inputs) {

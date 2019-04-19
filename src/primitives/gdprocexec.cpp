@@ -34,11 +34,11 @@ void GDProcExec::_bind_methods() {
 }
 
 String GDProcExec::get_type_name() const {
-	return RTR("Execute Expression");
+	return RTR_LOCAL("Execute Expression");
 }
 
 String GDProcExec::get_description() const {
-	return RTR("Executes an expression against multiple reals.\nUse variables 'a', 'b', 'c', 'd' and 'e' to access the specific array.\nUse 'i' to get the index in the array.");
+	return RTR_LOCAL("Executes an expression against multiple reals.\nUse variables 'a', 'b', 'c', 'd' and 'e' to access the specific array.\nUse 'i' to get the index in the array.");
 }
 
 void GDProcExec::set_expression(String p_expression) {
@@ -137,7 +137,7 @@ bool GDProcExec::update(bool p_inputs_updated, const Array &p_inputs) {
 
 		if (expression == String()) {
 			// No expression. Leave output unmodified
-			WARN_PRINTS(RTR("Node '{0}' failed to parse expression. Output will be unmodified.\nError Message: No expression found.")
+			WARN_PRINTS(RTR_LOCAL("Node '{0}' failed to parse expression. Output will be unmodified.\nError Message: No expression found.")
 								.format(varray(get_node_name())));
 			return false;
 		}
@@ -195,7 +195,7 @@ bool GDProcExec::update(bool p_inputs_updated, const Array &p_inputs) {
 		Error err = executor->parse(expression, input_names);
 		if (err != OK) {
 			// We error'd out. output is unmodified.
-			WARN_PRINTS(RTR("Node '{0}' failed to parse expression. Output will be unmodified.\nError Message: {1}")
+			WARN_PRINTS(RTR_LOCAL("Node '{0}' failed to parse expression. Output will be unmodified.\nError Message: {1}")
 								.format(varray(get_node_name(), executor->get_error_text())));
 			return false;
 		}
@@ -227,7 +227,7 @@ bool GDProcExec::update(bool p_inputs_updated, const Array &p_inputs) {
 			Variant v = executor->execute(inputs, *executor, false);
 			if (executor->has_execute_failed()) {
 				// If first execution fails, all of them will fail so exit early
-				WARN_PRINTS(RTR("Node '{0}' failed to execute expression. Output will be unmodified.\nError Message: {1}")
+				WARN_PRINTS(RTR_LOCAL("Node '{0}' failed to execute expression. Output will be unmodified.\nError Message: {1}")
 									.format(varray(get_node_name(), executor->get_error_text())));
 				return false;
 			} else {

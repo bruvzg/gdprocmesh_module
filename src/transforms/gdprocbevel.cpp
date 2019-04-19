@@ -20,11 +20,11 @@ void GDProcBevel::_bind_methods() {
 }
 
 String GDProcBevel::get_type_name() const {
-	return RTR("Bevel");
+	return RTR_LOCAL("Bevel");
 }
 
 String GDProcBevel::get_description() const {
-	return RTR("Bevels a 2D path to round each corner.");
+	return RTR_LOCAL("Bevels a 2D path to round each corner.");
 }
 
 void GDProcBevel::set_distance(float p_distance) {
@@ -41,10 +41,10 @@ float GDProcBevel::get_distance() const {
 
 void GDProcBevel::set_iterations(int p_iterations) {
 	if (p_iterations <= 0) {
-		ERR_EXPLAIN(RTR("Can't set iterations to ") + String::num_int64(p_iterations));
+		ERR_EXPLAIN(RTR_LOCAL("Can't set iterations to ") + String::num_int64(p_iterations));
 		ERR_FAIL();
 	} else if (p_iterations > 10) {
-		ERR_EXPLAIN(RTR("Can't set iterations to ") + String::num_int64(p_iterations));
+		ERR_EXPLAIN(RTR_LOCAL("Can't set iterations to ") + String::num_int64(p_iterations));
 		ERR_FAIL();
 	}
 

@@ -12,11 +12,11 @@ void GDProcSplitVector::_bind_methods() {
 }
 
 String GDProcSplitVector::get_type_name() const {
-	return RTR("Vector Split");
+	return RTR_LOCAL("Vector Split");
 }
 
 String GDProcSplitVector::get_description() const {
-	return RTR("Helper node to split one vector into three reals.");
+	return RTR_LOCAL("Helper node to split one vector into three reals.");
 }
 
 void GDProcSplitVector::set_vector(Vector3 vector) {

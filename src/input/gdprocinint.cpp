@@ -8,11 +8,11 @@ void GDProcInInt::_bind_methods() {
 }
 
 String GDProcInInt::get_type_name() const {
-	return RTR("Input Int");
+	return RTR_LOCAL("Input Int");
 }
 
 String GDProcInInt::get_description() const {
-	return RTR("Allows you to specify an integer as input for the procedural mesh.\nCan be set from the editor.");
+	return RTR_LOCAL("Allows you to specify an integer as input for the procedural mesh.\nCan be set from the editor.");
 }
 
 void GDProcInInt::set_input(Variant p_input) {

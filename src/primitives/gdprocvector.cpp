@@ -20,11 +20,11 @@ void GDProcVector::_bind_methods() {
 }
 
 String GDProcVector::get_type_name() const {
-	return RTR("Vector Combine");
+	return RTR_LOCAL("Vector Combine");
 }
 
 String GDProcVector::get_description() const {
-	return RTR("Helper node to combine 3 reals into one vec3.");
+	return RTR_LOCAL("Helper node to combine 3 reals into one vec3.");
 }
 
 void GDProcVector::set_x(float x) {

@@ -1,0 +1,615 @@
+# LANGUAGE translation of the GDProcMesh
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: GDProcMesh\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Need a color for type "
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "On"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Invalid property type"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Name:"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Hide"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Error adding node: "
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Error adding node: Invalid node type!"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Error loading file: Not a resource!"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Add node..."
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Inputs/Input Curve"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Inputs/Input Int"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Inputs/Input Mesh"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Inputs/Input Vectors"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Inputs/Input Real"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Inputs/Input Vector"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Primitives/Count"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Primitives/Euler Angles"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Primitives/Random"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Primitives/Split Vector"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Primitives/Vector"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Primitives/Execute"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Transforms/Add"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Transforms/Bevel"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Transforms/Division"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Transforms/Generate Normals"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Transforms/Redistribute"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Transforms/Multiply"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Transforms/Rotate"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Transforms/Multiply Rotation"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Transforms/Scale"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Transforms/Subtract"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Transforms/Translate"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Shapes/Box"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Shapes/Circle"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Shapes/Line"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Shapes/Rectangle"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Surfaces/Extrude Shape"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Surfaces/Simplify"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Surfaces/Surface"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Modifiers/Merge"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Modifiers/Mirror"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Modifiers/Place on Path"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Modifiers/Transform"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Outputs/Output"
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Custom Node..."
+msgstr ""
+
+#: src/editor/gdprocmesheditor.cpp
+msgid "Procedural Mesh"
+msgstr ""
+
+#: src/gdprocmesh.cpp
+msgid "Couldn't find node "
+msgstr ""
+
+#: src/gdprocmesh.cpp
+msgid "Invalid node passed to add_node"
+msgstr ""
+
+#: src/gdprocmesh.cpp
+msgid "Unknown input node "
+msgstr ""
+
+#: src/gdprocmesh.cpp
+msgid "Input node "
+msgstr ""
+
+#: src/gdprocmesh.cpp
+msgid " does not have connector "
+msgstr ""
+
+#: src/gdprocmesh.cpp
+msgid "Unknown output node "
+msgstr ""
+
+#: src/gdprocmesh.cpp
+msgid "Output node "
+msgstr ""
+
+#: src/gdprocmesh.cpp
+msgid "Found circular dependency in procedural mesh!"
+msgstr ""
+
+#: src/gdprocmesh.cpp
+msgid "Unknown node "
+msgstr ""
+
+#: src/gdprocmesh.cpp
+msgid "Output type ({0}) and input type ({1}) do not match.\n"
+msgstr ""
+
+#: src/gdprocmesh.cpp
+msgid "Final node is not returning an array"
+msgstr ""
+
+#: src/gdprocmesh.cpp
+msgid "Final node is not returning a correctly sized array"
+msgstr ""
+
+#: src/gdprocmesh.cpp
+msgid "No vertices in surface"
+msgstr ""
+
+#: src/gdprocmesh.cpp
+msgid "No indices in surface"
+msgstr ""
+
+#: src/gdprocnode.cpp
+msgid "Node"
+msgstr ""
+
+#: src/gdprocnode.cpp
+msgid "No Description Available"
+msgstr ""
+
+#: src/input/gdprocincurve.cpp
+msgid "Input Curve"
+msgstr ""
+
+#: src/input/gdprocincurve.cpp
+msgid ""
+"Allows you to specify a Curve3D as input for the procedural mesh.\n"
+"Can be set from the editor.\n"
+"Outputs vertices at the baked interval."
+msgstr ""
+
+#: src/input/gdprocincurve.cpp src/input/gdprocinmesh.cpp
+msgid "Not an object "
+msgstr ""
+
+#: src/input/gdprocincurve.cpp src/input/gdprocinmesh.cpp
+msgid "Not a valid object (Null)."
+msgstr ""
+
+#: src/input/gdprocincurve.cpp src/input/gdprocinmesh.cpp
+msgid "Not a valid object (Class name)."
+msgstr ""
+
+#: src/input/gdprocinint.cpp
+msgid "Input Int"
+msgstr ""
+
+#: src/input/gdprocinint.cpp
+msgid ""
+"Allows you to specify an integer as input for the procedural mesh.\n"
+"Can be set from the editor."
+msgstr ""
+
+#: src/input/gdprocinmesh.cpp
+msgid "Input Mesh"
+msgstr ""
+
+#: src/input/gdprocinmesh.cpp
+msgid "Allows you to specify a Mesh as input for the procedural mesh."
+msgstr ""
+
+#: src/input/gdprocinpoolvectors.cpp
+msgid "Input Vectors"
+msgstr ""
+
+#: src/input/gdprocinpoolvectors.cpp
+msgid ""
+"Allows you to specify an array of vectors as input for the procedural mesh.\n"
+"Can be set from the editor."
+msgstr ""
+
+#: src/input/gdprocinreal.cpp
+msgid "Input Real"
+msgstr ""
+
+#: src/input/gdprocinreal.cpp
+msgid ""
+"Allows you to specify a real as input for the procedural mesh.\n"
+"Can be set from the editor."
+msgstr ""
+
+#: src/input/gdprocinvector.cpp
+msgid "Input Vector"
+msgstr ""
+
+#: src/input/gdprocinvector.cpp
+msgid ""
+"Allows you to specify a single vector as input for the procedural mesh.\n"
+"Can be set from the editor."
+msgstr ""
+
+#: src/modifiers/gdprocmerge.cpp
+msgid "Merge"
+msgstr ""
+
+#: src/modifiers/gdprocmerge.cpp
+msgid "Merges up to five surfaces into one."
+msgstr ""
+
+#: src/modifiers/gdprocmirror.cpp
+msgid "Mirror"
+msgstr ""
+
+#: src/modifiers/gdprocmirror.cpp
+msgid ""
+"Mirrors the surface on the chosen axes.\n"
+"If Duplicate is enabled, the node makes a copy of the surface before "
+"mirroring."
+msgstr ""
+
+#: src/modifiers/gdprocplaceonpath.cpp
+msgid "Place on Path"
+msgstr ""
+
+#: src/modifiers/gdprocplaceonpath.cpp
+msgid ""
+"Places a copy of the surface at the given rotation(s), translation(s) and "
+"scale(s)."
+msgstr ""
+
+#: src/modifiers/gdproctransform.cpp
+msgid "Transform"
+msgstr ""
+
+#: src/modifiers/gdproctransform.cpp
+msgid "Transforms the surface by the given translation, rotation and scale."
+msgstr ""
+
+#: src/output/gdprocoutput.cpp
+msgid "Output"
+msgstr ""
+
+#: src/output/gdprocoutput.cpp
+msgid "Used to output a surface to the final mesh."
+msgstr ""
+
+#: src/primitives/gdproccount.cpp
+msgid "Count"
+msgstr ""
+
+#: src/primitives/gdproccount.cpp
+msgid "Returns the amount of elements in the input."
+msgstr ""
+
+#: src/primitives/gdproccount.cpp
+msgid "Can't count this input"
+msgstr ""
+
+#: src/primitives/gdproceuler.cpp
+msgid "Euler Angles"
+msgstr ""
+
+#: src/primitives/gdproceuler.cpp
+msgid ""
+"Helper node to combine a rotation around the x, y and z axis (euler angles) "
+"into a quarternion."
+msgstr ""
+
+#: src/primitives/gdprocexec.cpp
+msgid "Execute Expression"
+msgstr ""
+
+#: src/primitives/gdprocexec.cpp
+msgid ""
+"Executes an expression against multiple reals.\n"
+"Use variables 'a', 'b', 'c', 'd' and 'e' to access the specific array.\n"
+"Use 'i' to get the index in the array."
+msgstr ""
+
+#: src/primitives/gdprocexec.cpp
+msgid ""
+"Node '{0}' failed to parse expression. Output will be unmodified.\n"
+"Error Message: No expression found."
+msgstr ""
+
+#: src/primitives/gdprocexec.cpp
+msgid ""
+"Node '{0}' failed to parse expression. Output will be unmodified.\n"
+"Error Message: {1}"
+msgstr ""
+
+#: src/primitives/gdprocexec.cpp
+msgid ""
+"Node '{0}' failed to execute expression. Output will be unmodified.\n"
+"Error Message: {1}"
+msgstr ""
+
+#: src/primitives/gdprocrandom.cpp
+msgid "Random"
+msgstr ""
+
+#: src/primitives/gdprocrandom.cpp
+msgid ""
+"Generates an array of reals where each real is a number between min_size and "
+"max_size.\n"
+"Count controls the amount of elements generated.\n"
+"Seed controls the seed used to generate the numbers. If seed is zero, a "
+"random seed is chosen."
+msgstr ""
+
+#: src/primitives/gdprocsplitvector.cpp
+msgid "Vector Split"
+msgstr ""
+
+#: src/primitives/gdprocsplitvector.cpp
+msgid "Helper node to split one vector into three reals."
+msgstr ""
+
+#: src/primitives/gdprocvector.cpp
+msgid "Vector Combine"
+msgstr ""
+
+#: src/primitives/gdprocvector.cpp
+msgid "Helper node to combine 3 reals into one vec3."
+msgstr ""
+
+#: src/shapes/gdprocbox.cpp
+msgid "Box"
+msgstr ""
+
+#: src/shapes/gdprocbox.cpp
+msgid "Creates a 3d box with a set width, height and depth."
+msgstr ""
+
+#: src/shapes/gdproccircle.cpp
+msgid "Circle"
+msgstr ""
+
+#: src/shapes/gdproccircle.cpp
+msgid ""
+"Creates a circle on a 2d plane with a set radius.\n"
+"Segments defines the amount of edges the circle has."
+msgstr ""
+
+#: src/shapes/gdprocline.cpp
+msgid "Line"
+msgstr ""
+
+#: src/shapes/gdprocline.cpp
+msgid "Creates a line by repeating a vector over a number of segments."
+msgstr ""
+
+#: src/shapes/gdprocrect.cpp
+msgid "Rectangle"
+msgstr ""
+
+#: src/shapes/gdprocrect.cpp
+msgid "Creates a rect on a 2d plane with a set width and height."
+msgstr ""
+
+#: src/surfaces/gdprocextrudeshape.cpp
+msgid "Extrude Shape"
+msgstr ""
+
+#: src/surfaces/gdprocextrudeshape.cpp
+msgid ""
+"Extrudes a 2D shape along a given path.\n"
+"Each slice will orientate itself along the slopes of the path."
+msgstr ""
+
+#: src/surfaces/gdprocsimplify.cpp
+msgid "Simplify"
+msgstr ""
+
+#: src/surfaces/gdprocsimplify.cpp
+msgid ""
+"Takes a surface a runs a Fast Quadric Mesh Simplification routine on it."
+msgstr ""
+
+#: src/surfaces/gdprocsurface.cpp
+msgid "Surface"
+msgstr ""
+
+#: src/surfaces/gdprocsurface.cpp
+msgid ""
+"Combines an array of vertices, normals, tangents, uvs, bones, weights and "
+"indices into a 3D surface.\n"
+"Vertices and indices are mandatory, other arrays are optional."
+msgstr ""
+
+#: src/transforms/gdprocadd.cpp
+msgid "Add"
+msgstr ""
+
+#: src/transforms/gdprocadd.cpp
+msgid "Adds all reals in input by add."
+msgstr ""
+
+#: src/transforms/gdprocbevel.cpp
+msgid "Bevel"
+msgstr ""
+
+#: src/transforms/gdprocbevel.cpp
+msgid "Bevels a 2D path to round each corner."
+msgstr ""
+
+#: src/transforms/gdprocbevel.cpp
+msgid "Can't set iterations to "
+msgstr ""
+
+#: src/transforms/gdprocdiv.cpp
+msgid "Division"
+msgstr ""
+
+#: src/transforms/gdprocdiv.cpp
+msgid "Divides all reals in input by divider."
+msgstr ""
+
+#: src/transforms/gdprocgennormals.cpp
+msgid "Generate Normals"
+msgstr ""
+
+#: src/transforms/gdprocgennormals.cpp
+msgid ""
+"Creates an array of normals by taking the average normal of each face a "
+"vertice is part of."
+msgstr ""
+
+#: src/transforms/gdprocmult.cpp
+msgid "Multiply"
+msgstr ""
+
+#: src/transforms/gdprocmult.cpp
+msgid "Multiplies all reals in input by mult."
+msgstr ""
+
+#: src/transforms/gdprocredist.cpp
+msgid "Redistribute"
+msgstr ""
+
+#: src/transforms/gdprocredist.cpp
+msgid ""
+"This node creates an array of vertices by following the path set out by the "
+"input array and taking a sample according to the strafe settings."
+msgstr ""
+
+#: src/transforms/gdprocrotate.cpp
+msgid "Rotate"
+msgstr ""
+
+#: src/transforms/gdprocrotate.cpp
+msgid "Rotates vectors from input by rotation."
+msgstr ""
+
+#: src/transforms/gdprocrotmult.cpp
+msgid "Multiply Rotation"
+msgstr ""
+
+#: src/transforms/gdprocrotmult.cpp
+msgid "Multiplies/combined two rotations."
+msgstr ""
+
+#: src/transforms/gdprocscale.cpp
+msgid "Scale"
+msgstr ""
+
+#: src/transforms/gdprocscale.cpp
+msgid ""
+"Multiplies together vectors from translation and vectors. In other words:\n"
+"output[i] = vectors[i % vectors.size()] * scale[i % scale.size()]"
+msgstr ""
+
+#: src/transforms/gdprocsub.cpp
+msgid "Subtract"
+msgstr ""
+
+#: src/transforms/gdprocsub.cpp
+msgid "Subtract all reals in input by value."
+msgstr ""
+
+#: src/transforms/gdproctranslate.cpp
+msgid "Translate"
+msgstr ""
+
+#: src/transforms/gdproctranslate.cpp
+msgid ""
+"Adds together vectors from translation and vectors. In other words:\n"
+"output[i] = vectors[i % vectors.size()] + translation[i % translation.size()]"
+msgstr ""

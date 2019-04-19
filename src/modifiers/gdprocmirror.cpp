@@ -24,11 +24,11 @@ void GDProcMirror::_bind_methods() {
 }
 
 String GDProcMirror::get_type_name() const {
-	return RTR("Mirror");
+	return RTR_LOCAL("Mirror");
 }
 
 String GDProcMirror::get_description() const {
-	return RTR("Mirrors the surface on the chosen axes.\nIf Duplicate is enabled, the node makes a copy of the surface before mirroring.");
+	return RTR_LOCAL("Mirrors the surface on the chosen axes.\nIf Duplicate is enabled, the node makes a copy of the surface before mirroring.");
 }
 
 // properties

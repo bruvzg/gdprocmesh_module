@@ -12,11 +12,11 @@ void GDProcTranslate::_bind_methods() {
 }
 
 String GDProcTranslate::get_type_name() const {
-	return RTR("Translate");
+	return RTR_LOCAL("Translate");
 }
 
 String GDProcTranslate::get_description() const {
-	return RTR("Adds together vectors from translation and vectors. In other words:\noutput[i] = vectors[i % vectors.size()] + translation[i % translation.size()]");
+	return RTR_LOCAL("Adds together vectors from translation and vectors. In other words:\noutput[i] = vectors[i % vectors.size()] + translation[i % translation.size()]");
 }
 
 void GDProcTranslate::set_translation(Vector3 new_vector) {

@@ -8,11 +8,11 @@ void GDProcGenNormals::_bind_methods() {
 }
 
 String GDProcGenNormals::get_type_name() const {
-	return RTR("Generate Normals");
+	return RTR_LOCAL("Generate Normals");
 }
 
 String GDProcGenNormals::get_description() const {
-	return RTR("Creates an array of normals by taking the average normal of each face a vertice is part of.");
+	return RTR_LOCAL("Creates an array of normals by taking the average normal of each face a vertice is part of.");
 }
 
 bool GDProcGenNormals::update(bool p_inputs_updated, const Array &p_inputs) {

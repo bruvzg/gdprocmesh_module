@@ -8,11 +8,11 @@ void GDProcInPoolVectors::_bind_methods() {
 }
 
 String GDProcInPoolVectors::get_type_name() const {
-	return RTR("Input Vectors");
+	return RTR_LOCAL("Input Vectors");
 }
 
 String GDProcInPoolVectors::get_description() const {
-	return RTR("Allows you to specify an array of vectors as input for the procedural mesh.\nCan be set from the editor.");
+	return RTR_LOCAL("Allows you to specify an array of vectors as input for the procedural mesh.\nCan be set from the editor.");
 }
 
 void GDProcInPoolVectors::set_input(Variant p_input) {

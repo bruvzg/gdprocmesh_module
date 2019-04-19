@@ -8,11 +8,11 @@ void GDProcMerge::_bind_methods() {
 }
 
 String GDProcMerge::get_type_name() const {
-	return RTR("Merge");
+	return RTR_LOCAL("Merge");
 }
 
 String GDProcMerge::get_description() const {
-	return RTR("Merges up to five surfaces into one.");
+	return RTR_LOCAL("Merges up to five surfaces into one.");
 }
 
 bool GDProcMerge::update(bool p_inputs_updated, const Array &p_inputs) {

@@ -16,11 +16,11 @@ void GDProcCircle::_bind_methods() {
 }
 
 String GDProcCircle::get_type_name() const {
-	return RTR("Circle");
+	return RTR_LOCAL("Circle");
 }
 
 String GDProcCircle::get_description() const {
-	return RTR("Creates a circle on a 2d plane with a set radius.\nSegments defines the amount of edges the circle has.");
+	return RTR_LOCAL("Creates a circle on a 2d plane with a set radius.\nSegments defines the amount of edges the circle has.");
 }
 
 void GDProcCircle::set_radius(float p_radius) {

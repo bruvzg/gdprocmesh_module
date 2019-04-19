@@ -8,11 +8,11 @@ void GDProcCount::_bind_methods() {
 }
 
 String GDProcCount::get_type_name() const {
-	return RTR("Count");
+	return RTR_LOCAL("Count");
 }
 
 String GDProcCount::get_description() const {
-	return RTR("Returns the amount of elements in the input.");
+	return RTR_LOCAL("Returns the amount of elements in the input.");
 }
 
 bool GDProcCount::update(bool p_inputs_updated, const Array &p_inputs) {
@@ -51,7 +51,7 @@ bool GDProcCount::update(bool p_inputs_updated, const Array &p_inputs) {
 				}; break;
 				default:
 					count++; // assume contains one
-					WARN_PRINTS(RTR("Can't count this input"));
+					WARN_PRINTS(RTR_LOCAL("Can't count this input"));
 					break;
 			}
 		}

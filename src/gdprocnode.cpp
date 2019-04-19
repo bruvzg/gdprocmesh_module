@@ -58,11 +58,11 @@ void GDProcNode::set_status(GDProcNode::ProcessStatus p_status) {
 }
 
 String GDProcNode::get_type_name() const {
-	return RTR("Node");
+	return RTR_LOCAL("Node");
 }
 
 String GDProcNode::get_description() const {
-	return RTR("No Description Available");
+	return RTR_LOCAL("No Description Available");
 }
 
 void GDProcNode::set_node_name(const String &p_node_name) {

@@ -24,11 +24,11 @@ void GDProcRandom::_bind_methods() {
 }
 
 String GDProcRandom::get_type_name() const {
-	return RTR("Random");
+	return RTR_LOCAL("Random");
 }
 
 String GDProcRandom::get_description() const {
-	return RTR("Generates an array of reals where each real is a number between min_size and max_size.\nCount controls the amount of elements generated.\nSeed controls the seed used to generate the numbers. If seed is zero, a random seed is chosen.");
+	return RTR_LOCAL("Generates an array of reals where each real is a number between min_size and max_size.\nCount controls the amount of elements generated.\nSeed controls the seed used to generate the numbers. If seed is zero, a random seed is chosen.");
 }
 
 void GDProcRandom::set_seed(int p_seed) {

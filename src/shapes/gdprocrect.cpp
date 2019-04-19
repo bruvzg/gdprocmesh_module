@@ -16,11 +16,11 @@ void GDProcRect::_bind_methods() {
 }
 
 String GDProcRect::get_type_name() const {
-	return RTR("Rectangle");
+	return RTR_LOCAL("Rectangle");
 }
 
 String GDProcRect::get_description() const {
-	return RTR("Creates a rect on a 2d plane with a set width and height.");
+	return RTR_LOCAL("Creates a rect on a 2d plane with a set width and height.");
 }
 
 void GDProcRect::set_width(float p_width) {

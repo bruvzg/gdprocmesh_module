@@ -20,11 +20,11 @@ void GDProcEuler::_bind_methods() {
 }
 
 String GDProcEuler::get_type_name() const {
-	return RTR("Euler Angles");
+	return RTR_LOCAL("Euler Angles");
 }
 
 String GDProcEuler::get_description() const {
-	return RTR("Helper node to combine a rotation around the x, y and z axis (euler angles) into a quarternion.");
+	return RTR_LOCAL("Helper node to combine a rotation around the x, y and z axis (euler angles) into a quarternion.");
 }
 
 void GDProcEuler::set_x(float x) {

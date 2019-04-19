@@ -4,7 +4,16 @@ Import('env')
 Import('env_modules')
 
 if env['tools']:
+	import glob
+	import editor_builders
+	from platform_methods import run_in_subprocess
+	path = env.Dir('.').abspath
+	# Icons
 	SConscript('src/editor/icons/SCsub')
+	# Translations
+	tlist = glob.glob(path + "/translations/*.po")
+	env.Depends('src/editor/translations.gen.h', tlist)
+	env.CommandNoCache('src/editor/translations.gen.h', tlist, run_in_subprocess(editor_builders.make_translations_header))
 
 env_gdprocmesh_module = env_modules.Clone()
 

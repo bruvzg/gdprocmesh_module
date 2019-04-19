@@ -17,6 +17,8 @@
 #include "src/surfaces/gdprocsurface.h"
 #include "src/transforms/gdprocgennormals.h"
 
+#include "src/local_translation.h"
+
 class GDProcMesh : public ArrayMesh {
 	GDCLASS(GDProcMesh, ArrayMesh)
 

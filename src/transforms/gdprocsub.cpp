@@ -12,11 +12,11 @@ void GDProcSub::_bind_methods() {
 }
 
 String GDProcSub::get_type_name() const {
-	return RTR("Subtract");
+	return RTR_LOCAL("Subtract");
 }
 
 String GDProcSub::get_description() const {
-	return RTR("Subtract all reals in input by value.");
+	return RTR_LOCAL("Subtract all reals in input by value.");
 }
 
 void GDProcSub::set_subtract(float p_subtract) {

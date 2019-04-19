@@ -20,11 +20,11 @@ void GDProcExtrudeShape::_bind_methods() {
 }
 
 String GDProcExtrudeShape::get_type_name() const {
-	return RTR("Extrude Shape");
+	return RTR_LOCAL("Extrude Shape");
 }
 
 String GDProcExtrudeShape::get_description() const {
-	return RTR("Extrudes a 2D shape along a given path.\nEach slice will orientate itself along the slopes of the path.");
+	return RTR_LOCAL("Extrudes a 2D shape along a given path.\nEach slice will orientate itself along the slopes of the path.");
 }
 
 void GDProcExtrudeShape::set_shape_is_closed(bool p_is_closed) {

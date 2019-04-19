@@ -20,11 +20,11 @@ void GDProcTransform::_bind_methods() {
 }
 
 String GDProcTransform::get_type_name() const {
-	return RTR("Transform");
+	return RTR_LOCAL("Transform");
 }
 
 String GDProcTransform::get_description() const {
-	return RTR("Transforms the surface by the given translation, rotation and scale.");
+	return RTR_LOCAL("Transforms the surface by the given translation, rotation and scale.");
 }
 
 void GDProcTransform::set_rotation(Vector3 p_rotation) {

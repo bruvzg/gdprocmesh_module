@@ -8,11 +8,11 @@ void GDProcInReal::_bind_methods() {
 }
 
 String GDProcInReal::get_type_name() const {
-	return RTR("Input Real");
+	return RTR_LOCAL("Input Real");
 }
 
 String GDProcInReal::get_description() const {
-	return RTR("Allows you to specify a real as input for the procedural mesh.\nCan be set from the editor.");
+	return RTR_LOCAL("Allows you to specify a real as input for the procedural mesh.\nCan be set from the editor.");
 }
 
 void GDProcInReal::set_input(Variant p_input) {

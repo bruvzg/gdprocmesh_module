@@ -20,6 +20,8 @@
 #include "src/gdprocmesh.h"
 #include "src/gdprocnode.h"
 
+#include "src/local_translation.h"
+
 class GDProcMeshEditorPlugin;
 
 /*************************************************************************/
@@ -153,6 +155,8 @@ class GDProcMeshEditorPlugin : public EditorPlugin {
 	GDProcMeshEditor *proc_mesh_editor;
 	Button *button;
 
+	Ref<Translation> translation;
+
 	Map<String, Ref<ImageTexture> > gui_icons;
 	Map<String, Ref<ImageTexture> > type_icons;
 
@@ -160,7 +164,12 @@ protected:
 	void _notification(int p_notification);
 	static void _bind_methods();
 
+	static GDProcMeshEditorPlugin *singleton;
+
 public:
+	_FORCE_INLINE_ static GDProcMeshEditorPlugin *get_singleton() { return singleton; }
+	StringName tool_translate(const StringName &p_message) const;
+
 	Ref<ImageTexture> get_gui_icon(const String &p_key);
 
 	virtual String get_name() const { return "GDProcMesh"; }
@@ -170,6 +179,7 @@ public:
 	void make_visible(bool p_visible);
 
 	GDProcMeshEditorPlugin(EditorNode *p_editor);
+	~GDProcMeshEditorPlugin();
 };
 
 #endif /* !GD_PROC_MESH_EDITOR_H */

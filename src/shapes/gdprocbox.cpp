@@ -20,11 +20,11 @@ void GDProcBox::_bind_methods() {
 }
 
 String GDProcBox::get_type_name() const {
-	return RTR("Box");
+	return RTR_LOCAL("Box");
 }
 
 String GDProcBox::get_description() const {
-	return RTR("Creates a 3d box with a set width, height and depth.");
+	return RTR_LOCAL("Creates a 3d box with a set width, height and depth.");
 }
 
 GDProcBox::GDProcBox() {

@@ -8,11 +8,11 @@ void GDProcRotMult::_bind_methods() {
 }
 
 String GDProcRotMult::get_type_name() const {
-	return RTR("Multiply Rotation");
+	return RTR_LOCAL("Multiply Rotation");
 }
 
 String GDProcRotMult::get_description() const {
-	return RTR("Multiplies/combined two rotations.");
+	return RTR_LOCAL("Multiplies/combined two rotations.");
 }
 
 bool GDProcRotMult::update(bool p_inputs_updated, const Array &p_inputs) {

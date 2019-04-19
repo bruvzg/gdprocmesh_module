@@ -12,11 +12,11 @@ void GDProcMult::_bind_methods() {
 }
 
 String GDProcMult::get_type_name() const {
-	return RTR("Multiply");
+	return RTR_LOCAL("Multiply");
 }
 
 String GDProcMult::get_description() const {
-	return RTR("Multiplies all reals in input by mult.");
+	return RTR_LOCAL("Multiplies all reals in input by mult.");
 }
 
 void GDProcMult::set_mult(float p_mult) {

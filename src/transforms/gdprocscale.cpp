@@ -12,11 +12,11 @@ void GDProcScale::_bind_methods() {
 }
 
 String GDProcScale::get_type_name() const {
-	return RTR("Scale");
+	return RTR_LOCAL("Scale");
 }
 
 String GDProcScale::get_description() const {
-	return RTR("Multiplies together vectors from translation and vectors. In other words:\noutput[i] = vectors[i % vectors.size()] * scale[i % scale.size()]");
+	return RTR_LOCAL("Multiplies together vectors from translation and vectors. In other words:\noutput[i] = vectors[i % vectors.size()] * scale[i % scale.size()]");
 }
 
 void GDProcScale::set_scale(Vector3 p_scale) {

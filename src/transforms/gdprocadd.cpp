@@ -12,11 +12,11 @@ void GDProcAdd::_bind_methods() {
 }
 
 String GDProcAdd::get_type_name() const {
-	return RTR("Add");
+	return RTR_LOCAL("Add");
 }
 
 String GDProcAdd::get_description() const {
-	return RTR("Adds all reals in input by add.");
+	return RTR_LOCAL("Adds all reals in input by add.");
 }
 
 void GDProcAdd::set_add(float p_add) {
