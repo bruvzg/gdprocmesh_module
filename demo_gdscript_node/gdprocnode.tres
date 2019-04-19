@@ -1,0 +1,39 @@
+[gd_resource type="GDProcNode" load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "tool
+extends GDProcNode
+
+func _get_type_name():
+	return \"Test GDScript Node (3 real consts)\"
+
+func _get_description():
+	return \"This is test node\"
+
+func _get_output_connector_count():
+	return 3
+
+func _get_output_connector_type(p_slot):
+	return TYPE_REAL_ARRAY
+
+func _get_output_connector_name(p_slot):
+	if p_slot == 0:
+		return \"real1\"
+	elif p_slot == 1:
+		return \"real3\"
+	else:
+		return \"real5\"
+
+func _get_output(p_slot):
+	if p_slot == 0:
+		return PoolRealArray([13.0])
+	elif p_slot == 1:
+		return PoolRealArray([31.6])
+	else:
+		return PoolRealArray([42.0])
+"
+
+[resource]
+position = Vector2( 160, 100 )
+node_name = "Node"
+script = SubResource( 1 )

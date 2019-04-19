@@ -2,6 +2,8 @@
 /*  gdprocnode.cpp                                                       */
 /*************************************************************************/
 
+#include <core/script_language.h>
+
 #include "src/gdprocnode.h"
 
 void GDProcNode::_bind_methods() {
@@ -28,6 +30,10 @@ void GDProcNode::_bind_methods() {
 	ADD_PROPERTY(PropertyInfo(Variant::BOOL, "hidden_input"), "set_hidden_input", "get_hidden_input");
 
 	ClassDB::bind_method(D_METHOD("get_input_property_type"), &GDProcNode::get_input_property_type);
+	ClassDB::bind_method(D_METHOD("get_input_property_hint"), &GDProcNode::get_input_property_hint);
+
+	ClassDB::bind_method(D_METHOD("get_input"), &GDProcNode::get_input);
+	ClassDB::bind_method(D_METHOD("set_input", "input"), &GDProcNode::set_input);
 
 	// connectors
 	ClassDB::bind_method(D_METHOD("get_input_connector_count"), &GDProcNode::get_input_connector_count);
@@ -39,6 +45,8 @@ void GDProcNode::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_output_connector_count"), &GDProcNode::get_output_connector_count);
 	ClassDB::bind_method(D_METHOD("get_output_connector_type", "slot"), &GDProcNode::get_output_connector_type);
 	ClassDB::bind_method(D_METHOD("get_output_connector_name", "slot"), &GDProcNode::get_output_connector_name);
+
+	ClassDB::bind_method(D_METHOD("get_output", "slot"), &GDProcNode::get_output);
 
 	// and a special signal for node name changes
 	ADD_SIGNAL(MethodInfo("node_name_changed", PropertyInfo(Variant::OBJECT, "node"), PropertyInfo(Variant::STRING, "from"), PropertyInfo(Variant::STRING, "to")));
@@ -58,11 +66,23 @@ void GDProcNode::set_status(GDProcNode::ProcessStatus p_status) {
 }
 
 String GDProcNode::get_type_name() const {
-	return RTR_LOCAL("Node");
+	if (get_script_instance() && get_script_instance()->has_method("_get_type_name")) {
+		//printf("scr call _get_type_name\n");
+		Variant::CallError ce;
+		return get_script_instance()->call("_get_type_name", NULL, 0, ce);
+	} else {
+		return RTR_LOCAL("Node");
+	}
 }
 
 String GDProcNode::get_description() const {
-	return RTR_LOCAL("No Description Available");
+	if (get_script_instance() && get_script_instance()->has_method("_get_description")) {
+		//printf("scr call _get_description\n");
+		Variant::CallError ce;
+		return get_script_instance()->call("_get_description", NULL, 0, ce);
+	} else {
+		return RTR_LOCAL("No Description Available");
+	}
 }
 
 void GDProcNode::set_node_name(const String &p_node_name) {
@@ -97,26 +117,60 @@ bool GDProcNode::update(bool p_inputs_updated, const Array &p_inputs) {
 	must_update = false;
 
 	if (updated) {
-		// just an example here, but implement updating data here..
+		if (get_script_instance() && get_script_instance()->has_method("_update")) {
+			//printf("scr call _update\n");
+			Variant::CallError ce;
+			Variant inputs = Variant(p_inputs);
+			Variant *argptrs[1] = {
+				&inputs
+			};
+			return get_script_instance()->call("_update", (const Variant **)&argptrs, 1, ce);
+		}
 	}
 
 	return updated;
 }
 
 Variant::Type GDProcNode::get_input_property_type() const {
-	return Variant::NIL;
+	if (get_script_instance() && get_script_instance()->has_method("_get_input_property_type")) {
+		//printf("scr call _get_input_property_type\n");
+		Variant::CallError ce;
+		int64_t v_type = get_script_instance()->call("_get_input_property_type", NULL, 0, ce);
+		return (Variant::Type)(v_type);
+	} else {
+		return Variant::NIL;
+	}
 }
 
 String GDProcNode::get_input_property_hint() const {
-	return String();
+	if (get_script_instance() && get_script_instance()->has_method("_get_input_property_hint")) {
+		//printf("scr call _get_input_property_hint\n");
+		Variant::CallError ce;
+		return get_script_instance()->call("_get_input_property_hint", NULL, 0, ce);
+	} else {
+		return String();
+	}
 }
 
 void GDProcNode::set_input(Variant p_input) {
-	// nothing to do here
+	if (get_script_instance() && get_script_instance()->has_method("_set_input")) {
+		//printf("scr call _set_input\n");
+		Variant::CallError ce;
+		Variant *argptrs[1] = {
+			&p_input
+		};
+		get_script_instance()->call("_set_input", (const Variant **)&argptrs, 1, ce);
+	}
 }
 
 Variant GDProcNode::get_input() {
-	return Variant();
+	if (get_script_instance() && get_script_instance()->has_method("_get_input")) {
+		//printf("scr call _get_input\n");
+		Variant::CallError ce;
+		return get_script_instance()->call("_get_input", NULL, 0, ce);
+	} else {
+		return Variant();
+	}
 }
 
 void GDProcNode::set_hidden_input(bool p_set) {
@@ -128,36 +182,110 @@ bool GDProcNode::get_hidden_input() const {
 }
 
 int GDProcNode::get_input_connector_count() const {
-	return 0;
+	if (get_script_instance() && get_script_instance()->has_method("_get_input_connector_count")) {
+		//printf("scr call _get_input_connector_count\n");
+		Variant::CallError ce;
+		return get_script_instance()->call("_get_input_connector_count", NULL, 0, ce);
+	} else {
+		return 0;
+	}
 }
 
 Variant::Type GDProcNode::get_input_connector_type(int p_slot) const {
-	return Variant::NIL;
+	if (get_script_instance() && get_script_instance()->has_method("_get_input_connector_type")) {
+		//printf("scr call _get_input_connector_type\n");
+		Variant::CallError ce;
+		Variant slot = Variant(p_slot);
+		Variant *argptrs[1] = {
+			&slot
+		};
+		int64_t v_type = get_script_instance()->call("_get_input_connector_type", (const Variant **)&argptrs, 1, ce);
+		return (Variant::Type)(v_type);
+	} else {
+		return Variant::NIL;
+	}
 }
 
 String GDProcNode::get_input_connector_name(int p_slot) const {
-	return String();
+	if (get_script_instance() && get_script_instance()->has_method("_get_input_connector_name")) {
+		//printf("scr call _get_input_connector_name\n");
+		Variant::CallError ce;
+		Variant slot = Variant(p_slot);
+		Variant *argptrs[1] = {
+			&slot
+		};
+		return get_script_instance()->call("_get_input_connector_name", (const Variant **)&argptrs, 1, ce);
+	} else {
+		return String();
+	}
 }
 
 String GDProcNode::get_connector_property_name(int p_slot) const {
-	return String();
+	if (get_script_instance() && get_script_instance()->has_method("_get_connector_property_name")) {
+		//printf("scr call _get_connector_property_name\n");
+		Variant::CallError ce;
+		Variant slot = Variant(p_slot);
+		Variant *argptrs[1] = {
+			&slot
+		};
+		return get_script_instance()->call("_get_connector_property_name", (const Variant **)&argptrs, 1, ce);
+	} else {
+		return String();
+	}
 }
 
 int GDProcNode::get_output_connector_count() const {
 	// we should always have one output unless this is our final node
-	return 1;
+	if (get_script_instance() && get_script_instance()->has_method("_get_output_connector_count")) {
+		//printf("scr call _get_output_connector_count\n");
+		Variant::CallError ce;
+		return get_script_instance()->call("_get_output_connector_count", NULL, 0, ce);
+	} else {
+		return 1;
+	}
 }
 
 Variant::Type GDProcNode::get_output_connector_type(int p_slot) const {
-	return Variant::NIL;
+	if (get_script_instance() && get_script_instance()->has_method("_get_output_connector_type")) {
+		//printf("scr call _get_output_connector_type\n");
+		Variant::CallError ce;
+		Variant slot = Variant(p_slot);
+		Variant *argptrs[1] = {
+			&slot
+		};
+		int64_t v_type = get_script_instance()->call("_get_output_connector_type", (const Variant **)&argptrs, 1, ce);
+		return (Variant::Type)(v_type);
+	} else {
+		return Variant::NIL;
+	}
 }
 
 String GDProcNode::get_output_connector_name(int p_slot) const {
-	return String("default");
+	if (get_script_instance() && get_script_instance()->has_method("_get_output_connector_name")) {
+		//printf("scr call _get_output_connector_name\n");
+		Variant::CallError ce;
+		Variant slot = Variant(p_slot);
+		Variant *argptrs[1] = {
+			&slot
+		};
+		return get_script_instance()->call("_get_output_connector_name", (const Variant **)&argptrs, 1, ce);
+	} else {
+		return String("default");
+	}
 }
 
 Variant GDProcNode::get_output(int p_slot) const {
-	return Variant();
+	if (get_script_instance() && get_script_instance()->has_method("_get_output")) {
+		//printf("scr call _get_output\n");
+		Variant::CallError ce;
+		Variant slot = Variant(p_slot);
+		Variant *argptrs[1] = {
+			&slot
+		};
+		return get_script_instance()->call("_get_output", (const Variant **)&argptrs, 1, ce);
+	} else {
+		return Variant();
+	}
 }
 
 Vector2 GDProcNode::get_position() const {
