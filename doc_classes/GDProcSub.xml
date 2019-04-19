@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="GDProcSub" inherits="GDProcNode" category="Core" version="3.2">
+	<brief_description>
+		Subtract Node
+	</brief_description>
+	<description>
+		Subtract all reals in input by value.
+	</description>
+	<tutorials>
+	</tutorials>
+	<demos>
+	</demos>
+	<methods>
+	</methods>
+	<members>
+		<member name="subtract" type="float" setter="set_subtract" getter="get_subtract">
+		</member>
+	</members>
+	<constants>
+	</constants>
+</class>

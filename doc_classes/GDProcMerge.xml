@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="GDProcMerge" inherits="GDProcNode" category="Core" version="3.2">
+	<brief_description>
+		Merge Node
+	</brief_description>
+	<description>
+		Merges up to five surfaces into one.
+	</description>
+	<tutorials>
+	</tutorials>
+	<demos>
+	</demos>
+	<methods>
+	</methods>
+	<constants>
+	</constants>
+</class>

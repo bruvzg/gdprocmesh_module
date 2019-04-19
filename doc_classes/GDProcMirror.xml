@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="GDProcMirror" inherits="GDProcNode" category="Core" version="3.2">
+	<brief_description>
+		Mirror Node
+	</brief_description>
+	<description>
+		Mirrors the surface on the chosen axes.
+		If Duplicate is enabled, the node makes a copy of the surface before mirroring.
+	</description>
+	<tutorials>
+	</tutorials>
+	<demos>
+	</demos>
+	<methods>
+	</methods>
+	<members>
+		<member name="duplicate" type="bool" setter="set_duplicate" getter="get_duplicate">
+		</member>
+		<member name="mirror_x" type="bool" setter="set_mirror_x" getter="get_mirror_x">
+		</member>
+		<member name="mirror_y" type="bool" setter="set_mirror_y" getter="get_mirror_y">
+		</member>
+		<member name="mirror_z" type="bool" setter="set_mirror_z" getter="get_mirror_z">
+		</member>
+	</members>
+	<constants>
+	</constants>
+</class>

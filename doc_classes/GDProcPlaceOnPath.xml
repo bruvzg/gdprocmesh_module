@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="GDProcPlaceOnPath" inherits="GDProcNode" category="Core" version="3.2">
+	<brief_description>
+		Place on Path Node
+	</brief_description>
+	<description>
+		Places a copy of the surface at the given rotation(s), translation(s) and scale(s).
+	</description>
+	<tutorials>
+	</tutorials>
+	<demos>
+	</demos>
+	<methods>
+	</methods>
+	<constants>
+	</constants>
+</class>

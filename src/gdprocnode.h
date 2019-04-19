@@ -1,0 +1,80 @@
+/*************************************************************************/
+/*  gdprocnode.h                                                         */
+/*************************************************************************/
+
+#ifndef GD_PROC_NODE_H
+#define GD_PROC_NODE_H
+
+#include <core/print_string.h>
+#include <core/translation.h>
+#include <scene/resources/material.h>
+#include <scene/resources/mesh.h>
+
+class GDProcMesh;
+
+class GDProcNode : public Resource {
+	GDCLASS(GDProcNode, Resource)
+
+public:
+	enum ProcessStatus {
+		PROCESS_STATUS_PENDING, // all nodes are cleared to this before we update our mesh
+		PROCESS_STATUS_INPROGRESS, // a node gets this status when we are in the middle of updating it, helps detect cyclic relationships
+		PROCESS_STATUS_UNCHANGED, // a node gets this status once we finish updating and find the node unchanged
+		PROCESS_STATUS_CHANGED // a node gets this status once we finish updating at its contents has changed
+	};
+
+private:
+	ProcessStatus status; // process status updated as we process our nodes
+	Vector2 position; // position in our graph, for editing
+	String node_name; // name of this node, I had issues using the build in name not being saved...
+
+protected:
+	bool must_update; // we set this to true if one of our properties/settings has changed
+	bool hidden_input; // if this node has an input propery, set if we hide it.
+
+	static void _bind_methods(); // register our methods and properties and signals
+
+public:
+	ProcessStatus get_status() const; // get the current process status
+	void set_status(ProcessStatus p_status); // change the process status
+
+	virtual String get_type_name() const; // gets the name we display in the title of the GraphNode
+	virtual String get_description() const; // Get the description of the node. Displayed in the tooltip.
+
+	void set_node_name(const String &p_node_name);
+	String get_node_name() const;
+
+	void _touch(); // marks this node for update
+	bool get_must_update();
+	virtual bool update(bool p_inputs_updated, const Array &p_inputs); // checks if our node has to be updated and if so, applies our calculations
+
+	virtual Variant::Type get_input_property_type() const; // if this is an input property, what is its type?
+	virtual String get_input_property_hint() const; // if this is an input property, what is the property hint?
+	virtual void set_input(Variant p_input); // if this is an input property, set its value
+	virtual Variant get_input(); // if this is an input property, get its value
+
+	void set_hidden_input(bool p_set); // if we have an input property, set whether it should be hidden
+	bool get_hidden_input() const;
+
+	virtual int get_input_connector_count() const; // returns the number of input connectors this note has
+	virtual Variant::Type get_input_connector_type(int p_slot) const; // returns the type of the data expected for this input
+	virtual String get_input_connector_name(int p_slot) const; // returns the name for this input
+
+	virtual String get_connector_property_name(int p_slot) const; // if we want an editable field for this slot, returns the name of the related property
+
+	virtual int get_output_connector_count() const; // returns the number of output connectors this node has
+	virtual Variant::Type get_output_connector_type(int p_slot) const; // returns the type of the data that is output by this output
+	virtual String get_output_connector_name(int p_slot) const; // returns the name for this output
+
+	// get our actual output for a connector, this should only be called after update has run!
+	virtual Variant get_output(int p_slot) const; // returns the output data itself
+
+	Vector2 get_position() const; // get the display position of this node in our graph
+	void set_position(Vector2 p_pos); // sets the display position of thisnode in our graph
+
+	GDProcNode();
+};
+
+VARIANT_ENUM_CAST(GDProcNode::ProcessStatus);
+
+#endif /* !GD_PROC_NODE_H */

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="GDProcBox" id=1]
+
+position = Vector2( 10, -25 )
+node_name = "Box"
+hide_input = false
+width = 1.0
+height = 1.0
+depth = 1.0
+
+[sub_resource type="GDProcOutput" id=2]
+
+position = Vector2( 360, 0 )
+node_name = "Output"
+hide_input = false
+
+[sub_resource type="GDProcMesh" id=3]
+
+nodes/2 = SubResource( 1 )
+nodes/3 = SubResource( 2 )
+graph/connections = PoolIntArray(  )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 3 )

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="GDProcCircle" inherits="GDProcNode" category="Core" version="3.2">
+	<brief_description>
+		Circle Node
+	</brief_description>
+	<description>
+		Creates a circle on a 2d plane with a set radius.
+		Segments defines the amount of edges the circle has.
+	</description>
+	<tutorials>
+	</tutorials>
+	<demos>
+	</demos>
+	<methods>
+	</methods>
+	<members>
+		<member name="radius" type="float" setter="set_radius" getter="get_radius">
+		</member>
+		<member name="segments" type="int" setter="set_segments" getter="get_segments">
+		</member>
+	</members>
+	<constants>
+	</constants>
+</class>

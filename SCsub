@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+
+Import('env')
+Import('env_modules')
+
+if env['tools']:
+	SConscript('src/editor/icons/SCsub')
+
+env_gdprocmesh_module = env_modules.Clone()
+
+env_gdprocmesh_module.Append(CPPPATH=["."])
+env_gdprocmesh_module.Append(CPPPATH=["#thirdparty/nanosvg/"])
+
+env_gdprocmesh_module.add_source_files(env.modules_sources, "*.cpp")
+env_gdprocmesh_module.add_source_files(env.modules_sources, "src/*.cpp")
+env_gdprocmesh_module.add_source_files(env.modules_sources, "src/3rdparty/*.cpp")
+env_gdprocmesh_module.add_source_files(env.modules_sources, "src/input/*.cpp")
+env_gdprocmesh_module.add_source_files(env.modules_sources, "src/modifiers/*.cpp")
+env_gdprocmesh_module.add_source_files(env.modules_sources, "src/output/*.cpp")
+env_gdprocmesh_module.add_source_files(env.modules_sources, "src/primitives/*.cpp")
+env_gdprocmesh_module.add_source_files(env.modules_sources, "src/shapes/*.cpp")
+env_gdprocmesh_module.add_source_files(env.modules_sources, "src/surfaces/*.cpp")
+env_gdprocmesh_module.add_source_files(env.modules_sources, "src/transforms/*.cpp")
+
+if env['tools']:
+	env_gdprocmesh_module.add_source_files(env.modules_sources, "src/editor/*.cpp")
+
+Export('env')

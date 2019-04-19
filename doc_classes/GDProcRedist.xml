@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="GDProcRedist" inherits="GDProcNode" category="Core" version="3.2">
+	<brief_description>
+		Redistribute Node
+	</brief_description>
+	<description>
+		This node creates an array of vertices by following the path set out by the input array and taking a sample according to the strafe settings.
+	</description>
+	<tutorials>
+	</tutorials>
+	<demos>
+	</demos>
+	<methods>
+	</methods>
+	<members>
+		<member name="follow" type="bool" setter="set_follow" getter="get_follow">
+		</member>
+		<member name="is_closed" type="bool" setter="set_is_closed" getter="get_is_closed">
+		</member>
+		<member name="offset" type="float" setter="set_offset" getter="get_offset">
+		</member>
+		<member name="strafe" type="float" setter="set_strafe" getter="get_strafe">
+		</member>
+	</members>
+	<constants>
+	</constants>
+</class>

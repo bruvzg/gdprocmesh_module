@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="GDProcNode" inherits="Resource" category="Core" version="3.2">
+	<brief_description>
+		Procedural Mesh Node base class.
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<demos>
+	</demos>
+	<methods>
+		<method name="get_connector_property_name" qualifiers="const">
+			<return type="String">
+			</return>
+			<argument index="0" name="slot" type="int">
+			</argument>
+			<description>
+			</description>
+		</method>
+		<method name="get_description" qualifiers="const">
+			<return type="String">
+			</return>
+			<description>
+			</description>
+		</method>
+		<method name="get_input_connector_count" qualifiers="const">
+			<return type="int">
+			</return>
+			<description>
+			</description>
+		</method>
+		<method name="get_input_connector_name" qualifiers="const">
+			<return type="String">
+			</return>
+			<argument index="0" name="slot" type="int">
+			</argument>
+			<description>
+			</description>
+		</method>
+		<method name="get_input_connector_type" qualifiers="const">
+			<return type="int" enum="Variant.Type">
+			</return>
+			<argument index="0" name="slot" type="int">
+			</argument>
+			<description>
+			</description>
+		</method>
+		<method name="get_input_property_type" qualifiers="const">
+			<return type="int" enum="Variant.Type">
+			</return>
+			<description>
+			</description>
+		</method>
+		<method name="get_must_update" qualifiers="const">
+			<return type="bool">
+			</return>
+			<description>
+			</description>
+		</method>
+		<method name="get_output_connector_count" qualifiers="const">
+			<return type="int">
+			</return>
+			<description>
+			</description>
+		</method>
+		<method name="get_output_connector_name" qualifiers="const">
+			<return type="String">
+			</return>
+			<argument index="0" name="slot" type="int">
+			</argument>
+			<description>
+			</description>
+		</method>
+		<method name="get_output_connector_type" qualifiers="const">
+			<return type="int" enum="Variant.Type">
+			</return>
+			<argument index="0" name="slot" type="int">
+			</argument>
+			<description>
+			</description>
+		</method>
+		<method name="get_type_name" qualifiers="const">
+			<return type="String">
+			</return>
+			<description>
+			</description>
+		</method>
+		<method name="update">
+			<return type="bool">
+			</return>
+			<argument index="0" name="inputs_updated" type="bool">
+			</argument>
+			<argument index="1" name="inputs" type="Array">
+			</argument>
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="hidden_input" type="bool" setter="set_hidden_input" getter="get_hidden_input">
+		</member>
+		<member name="node_name" type="String" setter="set_node_name" getter="get_node_name">
+		</member>
+		<member name="position" type="Vector2" setter="set_position" getter="get_position">
+		</member>
+	</members>
+	<signals>
+		<signal name="node_name_changed">
+			<argument index="0" name="node" type="Object">
+			</argument>
+			<argument index="1" name="from" type="String">
+			</argument>
+			<argument index="2" name="to" type="String">
+			</argument>
+			<description>
+			</description>
+		</signal>
+	</signals>
+	<constants>
+		<constant name="PROCESS_STATUS_PENDING" value="0" enum="ProcessStatus">
+		</constant>
+		<constant name="PROCESS_STATUS_INPROGRESS" value="1" enum="ProcessStatus">
+		</constant>
+		<constant name="PROCESS_STATUS_UNCHANGED" value="2" enum="ProcessStatus">
+		</constant>
+		<constant name="PROCESS_STATUS_CHANGED" value="3" enum="ProcessStatus">
+		</constant>
+	</constants>
+</class>

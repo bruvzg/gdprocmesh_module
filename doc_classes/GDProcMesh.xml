@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="GDProcMesh" inherits="ArrayMesh" category="Core" version="3.2">
+	<brief_description>
+		Procedural Mesh
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<demos>
+	</demos>
+	<methods>
+		<method name="add_connection">
+			<return type="void">
+			</return>
+			<argument index="0" name="input_node_id" type="int">
+			</argument>
+			<argument index="1" name="input_connector" type="int">
+			</argument>
+			<argument index="2" name="output_node_id" type="int">
+			</argument>
+			<argument index="3" name="output_connector" type="int">
+			</argument>
+			<description>
+			</description>
+		</method>
+		<method name="add_node">
+			<return type="int">
+			</return>
+			<argument index="0" name="node" type="GDProcNode">
+			</argument>
+			<argument index="1" name="id" type="int" default="0">
+			</argument>
+			<description>
+			</description>
+		</method>
+		<method name="find_node">
+			<return type="int">
+			</return>
+			<argument index="0" name="node" type="GDProcNode">
+			</argument>
+			<description>
+			</description>
+		</method>
+		<method name="get_connection_list">
+			<return type="Array">
+			</return>
+			<description>
+			</description>
+		</method>
+		<method name="get_free_id">
+			<return type="int">
+			</return>
+			<description>
+			</description>
+		</method>
+		<method name="get_node">
+			<return type="GDProcNode">
+			</return>
+			<argument index="0" name="id" type="int">
+			</argument>
+			<description>
+			</description>
+		</method>
+		<method name="get_node_id_list">
+			<return type="Array">
+			</return>
+			<description>
+			</description>
+		</method>
+		<method name="remove_connection">
+			<return type="void">
+			</return>
+			<argument index="0" name="input_node_id" type="int">
+			</argument>
+			<argument index="1" name="input_connector" type="int">
+			</argument>
+			<description>
+			</description>
+		</method>
+		<method name="remove_node">
+			<return type="void">
+			</return>
+			<argument index="0" name="id" type="int">
+			</argument>
+			<description>
+			</description>
+		</method>
+		<method name="trigger_update">
+			<return type="void">
+			</return>
+			<description>
+			</description>
+		</method>
+	</methods>
+	<constants>
+	</constants>
+</class>

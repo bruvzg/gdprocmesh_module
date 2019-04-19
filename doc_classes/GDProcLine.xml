@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="GDProcLine" inherits="GDProcNode" category="Core" version="3.2">
+	<brief_description>
+		Line Node
+	</brief_description>
+	<description>
+		Creates a line by repeating a vector over a number of segments.
+	</description>
+	<tutorials>
+	</tutorials>
+	<demos>
+	</demos>
+	<methods>
+	</methods>
+	<members>
+		<member name="segments" type="int" setter="set_segments" getter="get_segments">
+		</member>
+		<member name="vector" type="Vector3" setter="set_vector" getter="get_vector">
+		</member>
+	</members>
+	<constants>
+	</constants>
+</class>

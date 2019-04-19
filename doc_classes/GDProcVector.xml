@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="GDProcVector" inherits="GDProcNode" category="Core" version="3.2">
+	<brief_description>
+		Vector Combine Node
+	</brief_description>
+	<description>
+		Helper node to combine 3 reals into one vec3.
+	</description>
+	<tutorials>
+	</tutorials>
+	<demos>
+	</demos>
+	<methods>
+	</methods>
+	<members>
+		<member name="x" type="float" setter="set_x" getter="get_x">
+		</member>
+		<member name="y" type="float" setter="set_y" getter="get_y">
+		</member>
+		<member name="z" type="float" setter="set_z" getter="get_z">
+		</member>
+	</members>
+	<constants>
+	</constants>
+</class>

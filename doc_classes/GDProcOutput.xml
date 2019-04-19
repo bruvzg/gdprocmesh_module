@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="GDProcOutput" inherits="GDProcNode" category="Core" version="3.2">
+	<brief_description>
+		Output Node
+	</brief_description>
+	<description>
+		Used to output a surface to the final mesh.
+	</description>
+	<tutorials>
+	</tutorials>
+	<demos>
+	</demos>
+	<methods>
+	</methods>
+	<constants>
+	</constants>
+</class>

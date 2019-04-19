@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="GDProcExec" inherits="GDProcNode" category="Core" version="3.2">
+	<brief_description>
+		Execute Expression Node
+	</brief_description>
+	<description>
+		Executes an expression against multiple reals.
+		Use variables 'a', 'b', 'c', 'd' and 'e' to access the specific array.
+		Use 'i' to get the index in the array."
+	</description>
+	<tutorials>
+	</tutorials>
+	<demos>
+	</demos>
+	<methods>
+	</methods>
+	<members>
+		<member name="a" type="float" setter="set_a" getter="get_a">
+		</member>
+		<member name="b" type="float" setter="set_b" getter="get_b">
+		</member>
+		<member name="c" type="float" setter="set_c" getter="get_c">
+		</member>
+		<member name="d" type="float" setter="set_d" getter="get_d">
+		</member>
+		<member name="e" type="float" setter="set_e" getter="get_e">
+		</member>
+		<member name="expression" type="String" setter="set_expression" getter="get_expression">
+		</member>
+	</members>
+	<constants>
+	</constants>
+</class>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="GDProcBevel" inherits="GDProcNode" category="Core" version="3.2">
+	<brief_description>
+		Bevel Node
+	</brief_description>
+	<description>
+		Bevels a 2D path to round each corner.
+	</description>
+	<tutorials>
+	</tutorials>
+	<demos>
+	</demos>
+	<methods>
+	</methods>
+	<members>
+		<member name="distance" type="float" setter="set_distance" getter="get_distance">
+		</member>
+		<member name="is_closed" type="bool" setter="set_is_closed" getter="get_is_closed">
+		</member>
+		<member name="iterations" type="int" setter="set_iterations" getter="get_iterations">
+		</member>
+	</members>
+	<constants>
+	</constants>
+</class>

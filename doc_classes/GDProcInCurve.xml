@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="GDProcInCurve" inherits="GDProcNode" category="Core" version="3.2">
+	<brief_description>
+		Input Curve Node
+	</brief_description>
+	<description>
+		Allows you to specify a Curve3D as input for the procedural mesh.
+		Can be set from the editor.
+		Outputs vertices at the baked interval.
+	</description>
+	<tutorials>
+	</tutorials>
+	<demos>
+	</demos>
+	<methods>
+	</methods>
+	<constants>
+	</constants>
+</class>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="GDProcGenNormals" inherits="GDProcNode" category="Core" version="3.2">
+	<brief_description>
+		Generate Normals Node
+	</brief_description>
+	<description>
+		Creates an array of normals by taking the average normal of each face a vertice is part of.
+	</description>
+	<tutorials>
+	</tutorials>
+	<demos>
+	</demos>
+	<methods>
+	</methods>
+	<constants>
+	</constants>
+</class>

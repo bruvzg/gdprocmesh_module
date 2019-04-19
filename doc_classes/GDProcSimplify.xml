@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="GDProcSimplify" inherits="GDProcNode" category="Core" version="3.2">
+	<brief_description>
+		Simplify Node
+	</brief_description>
+	<description>
+		Takes a surface a runs a Fast Quadric Mesh Simplification routine on it.
+	</description>
+	<tutorials>
+	</tutorials>
+	<demos>
+	</demos>
+	<methods>
+	</methods>
+	<members>
+		<member name="reduction_factor" type="float" setter="set_reduction_factor" getter="get_reduction_factor">
+		</member>
+	</members>
+	<constants>
+	</constants>
+</class>

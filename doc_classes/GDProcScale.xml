@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="GDProcScale" inherits="GDProcNode" category="Core" version="3.2">
+	<brief_description>
+		Scale Node
+	</brief_description>
+	<description>
+		Multiplies together vectors from translation and vectors.
+		In other words: [code]output[i] = vectors[i % vectors.size()] * scale[i % scale.size()][/code]
+	</description>
+	<tutorials>
+	</tutorials>
+	<demos>
+	</demos>
+	<methods>
+	</methods>
+	<members>
+		<member name="scale" type="Vector3" setter="set_scale" getter="get_scale">
+		</member>
+	</members>
+	<constants>
+	</constants>
+</class>

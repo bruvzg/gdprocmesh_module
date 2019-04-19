@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="GDProcSplitVector" inherits="GDProcNode" category="Core" version="3.2">
+	<brief_description>
+		Vector Split Node
+	</brief_description>
+	<description>
+		Helper node to split one vector into three reals.
+	</description>
+	<tutorials>
+	</tutorials>
+	<demos>
+	</demos>
+	<methods>
+	</methods>
+	<members>
+		<member name="vectors" type="Vector3" setter="set_vectors" getter="get_vectors">
+		</member>
+	</members>
+	<constants>
+	</constants>
+</class>

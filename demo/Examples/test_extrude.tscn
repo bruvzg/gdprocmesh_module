@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Examples/test_extrude.tres" type="GDProcMesh" id=1]
+
+[node name="Test extrude" type="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.61208, 0, -0.331424 )
+mesh = ExtResource( 1 )
+material/0 = null
+

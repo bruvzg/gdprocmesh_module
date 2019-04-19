@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="GDProcAdd" inherits="GDProcNode" category="Core" version="3.2">
+	<brief_description>
+		Add Node
+	</brief_description>
+	<description>
+		Adds all reals in input by add.
+	</description>
+	<tutorials>
+	</tutorials>
+	<demos>
+	</demos>
+	<methods>
+	</methods>
+	<members>
+		<member name="add" type="float" setter="set_add" getter="get_add">
+		</member>
+	</members>
+	<constants>
+	</constants>
+</class>

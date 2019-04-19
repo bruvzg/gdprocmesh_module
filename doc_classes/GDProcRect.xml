@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="GDProcRect" inherits="GDProcNode" category="Core" version="3.2">
+	<brief_description>
+		Rectangle Node
+	</brief_description>
+	<description>
+		Creates a rect on a 2d plane with a set width and height.
+	</description>
+	<tutorials>
+	</tutorials>
+	<demos>
+	</demos>
+	<methods>
+	</methods>
+	<members>
+		<member name="height" type="float" setter="set_height" getter="get_height">
+		</member>
+		<member name="width" type="float" setter="set_width" getter="get_width">
+		</member>
+	</members>
+	<constants>
+	</constants>
+</class>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="GDProcRandom" inherits="GDProcNode" category="Core" version="3.2">
+	<brief_description>
+		Random Node
+	</brief_description>
+	<description>
+		Generates an array of reals where each real is a number between min_size and max_size.
+		Count controls the amount of elements generated.
+		Seed controls the seed used to generate the numbers. If seed is zero, a random seed is chosen.
+	</description>
+	<tutorials>
+	</tutorials>
+	<demos>
+	</demos>
+	<methods>
+	</methods>
+	<members>
+		<member name="count" type="int" setter="set_count" getter="get_count">
+		</member>
+		<member name="max_value" type="float" setter="set_max_value" getter="get_max_value">
+		</member>
+		<member name="min_value" type="float" setter="set_min_value" getter="get_min_value">
+		</member>
+		<member name="seed" type="int" setter="set_seed" getter="get_seed">
+		</member>
+	</members>
+	<constants>
+	</constants>
+</class>
