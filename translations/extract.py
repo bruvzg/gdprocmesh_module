@@ -49,7 +49,7 @@ def process_file(f, fname):
     lc = 1
     while (l):
 
-        patterns = ['RTR_LOCAL(\"', 'TTR(\"','TTRC(\"']
+        patterns = ['RTR_LOCAL(\"']
         idx = 0
         pos = 0
         while (pos >= 0):
@@ -59,7 +59,7 @@ def process_file(f, fname):
                     idx += 1
                     pos = 0
                 continue
-            pos += 5
+            pos += 11
 
             msg = ""
             while (pos < len(l) and (l[pos] != '"' or l[pos - 1] == '\\')):
