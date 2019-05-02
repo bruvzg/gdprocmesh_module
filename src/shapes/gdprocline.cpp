@@ -78,18 +78,20 @@ bool GDProcLine::update(bool p_inputs_updated, const Array &p_inputs) {
 		}
 
 		// prepare our data
-		vertices.resize(segments + 1);
-		{
-			int i = 0;
-			Vector3 v = Vector3(0.0, 0.0, 0.0);
+		if (segments >= 0) {
+			vertices.resize(segments + 1);
+			{
+				int i = 0;
+				Vector3 v = Vector3(0.0, 0.0, 0.0);
 
-			PoolVector<Vector3>::Write wv = vertices.write();
-			PoolVector<Vector3>::Read r = input_values.read();
+				PoolVector<Vector3>::Write wv = vertices.write();
+				PoolVector<Vector3>::Read r = input_values.read();
 
-			wv[i++] = v;
-			for (int s = 0; s < segments; s++) {
-				v += r[s % num_values];
 				wv[i++] = v;
+				for (int s = 0; s < segments; s++) {
+					v += r[s % num_values];
+					wv[i++] = v;
+				}
 			}
 		}
 	}

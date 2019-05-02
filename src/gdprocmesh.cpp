@@ -22,11 +22,11 @@ void GDProcMesh::_get_property_list(List<PropertyInfo> *p_list) const {
 
 	// add a property for each node that we have
 	for (Map<int, Ref<GDProcNode> >::Element *E = nodes.front(); E; E = E->next()) {
-		p_list->push_back(PropertyInfo(Variant::OBJECT, String("nodes/") + String::num_int64(E->key()), PROPERTY_HINT_RESOURCE_TYPE, "GDProcNode", PROPERTY_USAGE_NOEDITOR));
+		p_list->push_back(PropertyInfo(Variant::OBJECT, String("nodes/") + String::num_int64(E->key()), PROPERTY_HINT_RESOURCE_TYPE, "GDProcNode", PROPERTY_USAGE_NOEDITOR | PROPERTY_USAGE_STORAGE));
 	}
 
 	// now add a property for our connection
-	p_list->push_back(PropertyInfo(Variant::POOL_INT_ARRAY, String("graph/connections"), PROPERTY_HINT_NONE, "", PROPERTY_USAGE_NOEDITOR));
+	p_list->push_back(PropertyInfo(Variant::POOL_INT_ARRAY, String("graph/connections"), PROPERTY_HINT_NONE, "", PROPERTY_USAGE_NOEDITOR | PROPERTY_USAGE_STORAGE));
 
 	// now add properties for any inputs, we should check if we have any issue with names not being unique
 	for (Map<int, Ref<GDProcNode> >::Element *E = nodes.front(); E; E = E->next()) {
@@ -36,9 +36,9 @@ void GDProcMesh::_get_property_list(List<PropertyInfo> *p_list) const {
 
 		if ((type != Variant::NIL) && (node_name != "")) {
 			if (type == Variant::OBJECT) {
-				p_list->push_back(PropertyInfo(type, String("inputs/") + node_name, PROPERTY_HINT_RESOURCE_TYPE, E->get()->get_input_property_hint(), (E->get()->get_hidden_input()) ? PROPERTY_USAGE_NOEDITOR : PROPERTY_USAGE_EDITOR));
+				p_list->push_back(PropertyInfo(type, String("inputs/") + node_name, PROPERTY_HINT_RESOURCE_TYPE, E->get()->get_input_property_hint(), (E->get()->get_hidden_input() ? PROPERTY_USAGE_NOEDITOR : PROPERTY_USAGE_EDITOR) | PROPERTY_USAGE_STORAGE));
 			} else {
-				p_list->push_back(PropertyInfo(type, String("inputs/") + node_name, PROPERTY_HINT_NONE, "", (E->get()->get_hidden_input()) ? PROPERTY_USAGE_NOEDITOR : PROPERTY_USAGE_EDITOR));
+				p_list->push_back(PropertyInfo(type, String("inputs/") + node_name, PROPERTY_HINT_NONE, "", (E->get()->get_hidden_input() ? PROPERTY_USAGE_NOEDITOR : PROPERTY_USAGE_EDITOR) | PROPERTY_USAGE_STORAGE));
 			}
 		}
 	}

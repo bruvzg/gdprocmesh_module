@@ -57,3 +57,5 @@ nodes/10 = SubResource( 2 )
 nodes/14 = SubResource( 3 )
 nodes/15 = SubResource( 4 )
 graph/connections = PoolIntArray( 9, 0, 6, 0, 9, 1, 10, 0, 15, 0, 14, 0, 15, 2, 9, 0, 1, 0, 15, 0 )
+inputs/Path = PoolVector3Array( 0, 0, -1, 0, 0, 2, 0, 2, 2, 0, 2, 4, 2, 2, 4, 2, 2, 2, 2, 1, 2, 2, 0, 0 )
+inputs/Distance = 0.3
