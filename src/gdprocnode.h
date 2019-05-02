@@ -47,7 +47,9 @@ public:
 	String get_node_name() const;
 
 	void _touch(); // marks this node for update
-	bool get_must_update();
+	bool get_must_update() const;
+	void set_must_update(bool p_must_update);
+
 	virtual bool update(bool p_inputs_updated, const Array &p_inputs); // checks if our node has to be updated and if so, applies our calculations
 
 	virtual Variant::Type get_input_property_type() const; // if this is an input property, what is its type?

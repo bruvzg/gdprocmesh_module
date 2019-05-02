@@ -1,0 +1,68 @@
+[gd_resource type="GDProcNode" load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "tool
+extends GDProcNode
+
+var data : PoolVector3Array
+
+func _get_type_name():
+	return \"Test GDScript Square\"
+
+func _get_description():
+	return \"This is test node\"
+
+func _get_input_connector_count():
+	return 1
+
+func _get_input_connector_type(p_slot):
+	return TYPE_REAL_ARRAY
+
+func _get_input_connector_name(p_slot):
+	return \"size\"
+
+func _get_output_connector_count():
+	return 1
+
+func _get_output_connector_type(p_slot):
+	return TYPE_VECTOR3_ARRAY
+
+func _get_output_connector_name(p_slot):
+	return \"shape\"
+
+func _get_output(p_slot):
+	return data
+
+func _update(p_inputs):
+	var sz = 4
+	var input_count = p_inputs.size()
+	if (input_count > 0):
+		var w = p_inputs[0]
+		if w is PoolRealArray:
+			if (w.size() > 0):
+				sz = w[0]
+
+	data.resize(4)
+
+	var hsx = sz / 2.0
+
+	data[0].x = -hsx
+	data[0].y = -hsx
+	data[0].z = 0.0
+	data[1].x = hsx
+	data[1].y = -hsx
+	data[1].z = 0.0
+	data[2].x = hsx
+	data[2].y = hsx
+	data[2].z = 0.0
+	data[3].x = -hsx
+	data[3].y = hsx
+	data[3].z = 0.0
+
+	return true
+"
+
+[resource]
+position = Vector2( 620, 100 )
+node_name = "Node_1"
+script = SubResource( 1 )

@@ -12,6 +12,8 @@ void GDProcNode::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("_touch"), &GDProcNode::_touch);
 
 	ClassDB::bind_method(D_METHOD("get_must_update"), &GDProcNode::get_must_update);
+	ClassDB::bind_method(D_METHOD("set_must_update", "must_update"), &GDProcNode::set_must_update);
+
 	ClassDB::bind_method(D_METHOD("update", "inputs_updated", "inputs"), &GDProcNode::update);
 
 	// position
@@ -108,8 +110,12 @@ void GDProcNode::_touch() {
 	must_update = true;
 }
 
-bool GDProcNode::get_must_update() {
+bool GDProcNode::get_must_update() const {
 	return must_update;
+}
+
+void GDProcNode::set_must_update(bool p_must_update) {
+	must_update = p_must_update;
 }
 
 bool GDProcNode::update(bool p_inputs_updated, const Array &p_inputs) {

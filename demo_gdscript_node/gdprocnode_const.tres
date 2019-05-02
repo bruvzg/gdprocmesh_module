@@ -34,6 +34,6 @@ func _get_output(p_slot):
 "
 
 [resource]
-position = Vector2( 160, 100 )
+position = Vector2( 120, 100 )
 node_name = "Node"
 script = SubResource( 1 )
